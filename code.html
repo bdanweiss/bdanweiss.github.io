@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>  
+  <head>
+    <script src ="./code.js"></script>
+
+    <link href="./style.css" type="text/css" rel="stylesheet">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Didact+Gothic|Merriweather|Noto+Serif|PT+Serif" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Ben Weiss | Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"> 
+  </head>
+
+  <body onresize="hideNavigation()">
+    
+    <!--Navigation Bar for Laptop/Desktop-->
+    <nav>
+      <i class="material-icons md-36 hamburger-icon " onclick = "showNavigation()">menu</i>
+      <a class = "title" href="../">Ben Weiss</a>
+      <div class = "navigation-phone">
+        <a class = "nav" href="../resume">Resume</a>
+        <a class = "nav active" href="./">Code</a>
+        <a class = "nav" href="../writing">Writing</a>
+      </div>
+    </nav>
+
+    <!--Navigation Bar for Smartphone-->
+
+    <nav id = "smartphone">
+      <i class="material-icons md-36 close-icon" onclick = "showNavigation()">close</i>
+      <a class = "title" href="../">Ben Weiss</a>
+      <a class = "nav" href="../writing">Writing</a>
+      <a class = "nav active" href="./">Code</a>
+      <a class = "nav" href="../resume">Resume</a>
+      <div id = "contact-smartphone">
+        <span class = "contact-phone-label">Contact:</span>
+
+        <div class = "contact-phone-box">
+          <span class = "contact-phone-writing">
+            <a href ="https://www.linkedin.com/in/benjamindweiss/" target="blank">LinkedIn</a>
+          </span>
+          <img class = "contact-icon" src = "./images/linkedin.png"/>
+          <span class = "contact-phone-writing">
+            <script type="text/javascript">writeEmail()</script>
+          </span>
+          <img class = "contact-icon" src = "./images/email.png"/>
+          <span class = "contact-phone-writing">
+            <a href ="https://www.linkedin.com/in/benjamindweiss/" target="blank">@bdanweiss</a>
+            <img class = "contact-icon" src = "./images/twitter.png"/>
+          </span>
+        </div>
+      </div>
+    </nav>
+
+    <div class="code-container">
+
+      <div class="project-box">
+
+          <div class = "project-cover">
+            <img class ="title-logo" src="./codesters.png"/>
+          </div>
+
+          <div class = "project-content">
+            <!-- The slides -->
+            <div onload = "hideLoader()" id="codesters-slides">
+              <div id ="loader" style ="left: 40%"></div>
+              <div class="codesters-frame fade" style="display: inline-block;">
+                <iframe src="https://www.codesters.com/embed/v1/preview/c8284997e5c94235bd2caae022ac7bc9/"></iframe>
+              </div>
+              <div class="codesters-frame fade">
+                <iframe src="https://www.codesters.com/embed/v1/preview/a360b71461e54790b1096082a3641897/"></iframe>
+              </div>
+              <div class="codesters-frame fade">
+                <iframe src="https://www.codesters.com/embed/v1/preview/5b8ebf98cf6340e6a7d4766c00d4afbc/"></iframe>
+              </div>
+              <a class="prev" onclick="changeCodeSlides(-1)">&#10094;</a>
+              <a class="codesters-next" onclick="changeCodeSlides(1)">&#10095;</a>
+
+              <!-- The dots/circles -->
+              <div style="text-align:center">
+                <span class="dot active-dot" onclick="currentSlide(0)"></span> 
+                <span class="dot" onclick="currentSlide(1)"></span> 
+                <span class="dot" onclick="currentSlide(2)"></span> 
+              </div>
+            </div>
+
+            <div class="codesters-explanation">
+              <img class ="heading" src="./codesters.png"/>
+              <p class="explanation-text">These are examples of demos and walkthroughs I created while revising a suite of curriculum for Codesters to be released for the 2019-2020 academic year.</p>
+              <p class="explanation-text">I wrote these programs using Python and the graphics package within Codesters. They are meant for middle-school students.</p>
+            </div>
+          </div>
+          
+        </div>
+
+        <div class="project-box">
+          <div class = "project-cover">
+            <div class="title-web">benweiss.info</div>
+          </div>
+          <div class = "project-content">
+          </div>
+        </div>
+
+        <footer>
+          <button class = "footer-button" onclick = "expand()">Contact</button>
+          <div id ="footer-collapse">
+            <div class = "contact-info">
+              <a href ="https://www.linkedin.com/in/benjamindweiss/" target="blank">LinkedIn</a>
+              <img class = "icon" src = "./images/linkedin.png"/>
+            </div>
+            <div class = "contact-info">
+              <script type="text/javascript">writeEmail()</script>
+              <img class = "icon" src = "./images/email.png"/>
+            </div>
+            <div class = "contact-info">
+              <a href ="https://twitter.com/bdanweiss/" target="blank">@bdanweiss</a>
+              <img class = "contact-icon" src = "./images/twitter.png"/>
+            </div>
+          </div>
+        </footer>
+
+    <script type="text/javascript">
+      codePage();
+    </script>
+
+    </div><!--writing-container-->
+  </body>
+</html>

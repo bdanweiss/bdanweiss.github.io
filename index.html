@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>  
+
+  <head>
+    <script src ="./code.js"></script>
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Didact+Gothic|Merriweather|Noto+Serif|PT+Serif" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Ben Weiss | Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"> 
+  </head>
+
+  <body onload ="changeSlides()" onresize = "changeSlidePosition();hideNavigation()">
+
+    <!--Loader-->
+    <div id ="loader"></div>
+
+    <div id = "background-slideshow">
+      <!--Navigation Bar for Laptop/Desktop-->
+
+      <nav id = "regular" onresize="hideNavigation()">
+        <style>
+          nav a {
+            color: white;
+          }
+          body {
+            min-width: 330px;
+          }
+        </style>
+        <i class="material-icons md-36 hamburger-icon " onclick = "showNavigation()">menu</i>
+        <a class = "title" href="./">Ben Weiss</a>
+        <span class = "contact-info">
+          <a href="https://www.linkedin.com/in/benjamindweiss/" target="_blank"><img class = "icon" src = "./images/linkedin.png"/><a>
+          <script>
+            writeEmail();
+          </script>
+          <a href="https://twitter.com/bdanweiss/" target="_blank"><img class = "twitter icon" src = "./images/twitter.png"/></a>
+        </span>
+        <a class = "nav" href="./resume/">Resume</a>
+        <a class = "nav" href="./writing">Writing</a>
+      </nav>
+
+      <!--Navigation Bar for Smartphone-->
+
+      <nav id = "smartphone">
+        <i class="material-icons md-36 close-icon" onclick = "showNavigation()">close</i>
+        <a class = "title" href="./">Ben Weiss</a>
+        <span id = "contact-smartphone">
+          <a href="https://www.linkedin.com/in/benjamindweiss/" target="_blank"><img class = "phone-icon" src = "./images/linkedin.png"/></a>
+          <script>writeEmailPhone();</script>
+          <a href="https://twitter.com/bdanweiss/" target="_blank"><img class = "phone-icon twitter-phone" src = "./images/twitter.png"/></a>
+        </span>
+        <a class = "nav" href="./writing">Writing</a>
+        <a class = "nav" href="./resume/">Resume</a>
+      </nav>
+
+      <button onclick = "next()" class = " slideshow next">&#10095;</button> 
+      <button onclick = "previous()" class = "slideshow previous">&#10094;</button>
+
+      <footer>
+        <span class = "copyright">© 2019 Ben Weiss</span>
+      </footer>
+    </div>
+  </body>
+</html>

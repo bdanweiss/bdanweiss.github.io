@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>  
+  <head>
+    <script src ="../code.js"></script>
+    <link href="../style.css" type="text/css" rel="stylesheet">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Didact+Gothic|Merriweather|Noto+Serif|PT+Serif" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Ben Weiss | Resume</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"> 
+  </head>
+  <body onresize="hideNavigation()">
+
+    <!--Navigation Bar for Laptop/Desktop-->
+    <nav>
+      <i class="material-icons md-36 hamburger-icon " onclick = "showNavigation()">menu</i>
+      <a class = "title" href="../">Ben Weiss</a>
+      <span class = "contact-info">
+        <a href="www.linkedin.com" target="_blank"><img class = "icon" src = "../images/linkedin.png"/></a>
+        <script>
+          writeEmail();
+        </script>
+        <a href="https://twitter.com/bdanweiss/" target="_blank"><img class = "twitter icon" src = "../images/twitter.png"/></a>
+      </span>
+      <a class = "nav active" href="./">Resume</a>
+      <a class = "nav" href="../writing">Writing</a>
+    </nav>
+
+    <!--Navigation Bar for Smartphone-->
+
+      <nav id = "smartphone">
+        <i class="material-icons md-36 close-icon" onclick = "showNavigation()">close</i>
+        <a class = "title" href="../">Ben Weiss</a>
+        <span id = "contact-smartphone">
+          <a href="https://www.linkedin.com/in/benjamindweiss/" target="_blank"><img class = "phone-icon" src = "../images/linkedin.png"/></a>
+          <script>writeEmailPhone();</script>
+          <a href="https://twitter.com/bdanweiss/" target="_blank"><img class = "phone-icon twitter-phone" src = "../images/twitter.png"/></a>
+        </span>
+        <a class = "nav" href="../writing">Writing</a>
+        <a class = "nav" href="./">Resume</a>
+      </nav>
+
+    <div class = "resume-container">
+
+      <div class = "work-container top"><!--Work Container-->
+        <button class = "button-category active-resume top-button" style="margin-top: -.8%; padding-top: 0">Education&nbsp;&nbsp;</button>
+        <div class = "resume-block">
+
+          <div class = "resume-entry">
+              <img src = "../images/carleton.png" class = "circle"/>
+              <div class = "resume-description">
+                <p><strong>Carleton College</strong></p> 
+                <p>Northfield, Minnesota</p>
+                <br>
+                <p>&#x2022 B.A. <em>cum laude</em> in History</p>
+                <p style="margin-top: 5px">&#x2022 Distinction in Major and Thesis</p>
+              </div>
+              <div class = "resume-date">June 2016</div>
+          </div> <!--Resume Entry-->
+
+          <div class = "resume-entry">
+              <img src = "../images/fenyang_landscape.jpg" class = "circle"/>
+              <div class = "resume-description">
+                <p><strong>Fenyang Teaching Fellowship</strong> 
+                <p>Fenyang High School, Fenyang, China</p>
+                <br>
+                <p>&#x2022 Awarded Noble Foundation grant to teach English in rural China</p>
+                <p style="margin-top: 5px">&#x2022 Developed weekly lessons on English language and American culture for 800 high school students and 150 elementary school students</p>
+              </div>
+              <div class = "resume-date">Sept. 2016 - June 2017</div>
+          </div> <!--Resume Entry-->
+
+        </div><!--Resume Block-->
+
+        <button class = "button-category active-resume">Journalism&nbsp;&nbsp;</button>
+        <div class = "resume-block"><!--Resume Block-->
+
+          <div class = "resume-entry">
+              <img src = "../images/greenpointers_pic.jpeg" class = "circle"/>
+              <div class = "resume-description">
+                <p><strong>Contributor</strong></p>
+                <p>Greenpointers, Brooklyn, NY</p>
+                <br>
+                <p>&#x2022  Pitch and write articles ranging from news updates to deep dives on the neighborhood of Greenpoint, Brooklyn </p>
+                <p style="margin-top: 5px">&#x2022 Contribute photography to written pieces</p>
+              </div>
+              <div class = "resume-date">January 2019 – Present</div>
+          </div> <!--Resume Entry-->
+
+          <div class = "resume-entry">
+            <img src = "../images/AP.png" class="circle"/>
+            <div class = "resume-description">
+              <p><strong>Vote Entry Operator/Webscraper</strong></p>
+              <p>Associated Press, New York City</p>
+              <br>
+              <p>&#x2022 Updated live vote counts for state primaries during the 2018 U.S. elections</p>
+              <p style="margin-top: 5px">&#x2022 Contacted county clerk to verify outstanding absentee ballots</p>
+            </div>
+            <div class = "resume-date">Aug. 2018 – Oct. 2018</div>
+          </div> <!--Resume Entry--> 
+
+          <div class = "resume-entry">
+            <img src = "../images/uniondocs.png" class="circle"/>
+            <div class = "resume-description">
+              <p><strong>Radio Boot Camp</strong></p>
+              <p>UnionDocs, Brooklyn, NY</p>
+              <br>
+              <p>&#x2022 Studied recording techniques, audio storytelling skills, and Hindenburg</p>
+              <p style="margin-top: 5px">&#x2022 Produced three-minute short interviewing Dungeons and Dragons players</p>
+            </div>
+            <div class = "resume-date">January 2018</div>
+          </div> <!--Resume Entry-->
+
+          <div class = "resume-entry">
+            <img src = "../images/gothamgazette.jpg" class="circle" style ="border: 1px solid;"/>
+            <div class = "resume-description">
+              <p><strong>Contributor/Intern</strong></p>
+              <p>Gotham Gazette, New York City</p>
+              <br>
+              <p>&#x2022 Published eight articles on NYC politics</p>
+              <p style="margin-top: 5px">&#x2022 Pitched, researched, and wrote a feature-length article on poll-worker bias</p>
+              <p style="margin-top: 5px">&#x2022 Compiled in conjunction with WNYC an electoral guide for 2017 primaries</p>
+            </div>
+            <div class = "resume-date">Aug. 2017 – Dec. 2017</div>
+          </div> <!--Resume Entry-->      
+
+        </div><!--Resume Block-->  
+
+        <button class = "button-category active-resume">Current Work&nbsp;&nbsp;</button>
+        <div class = "resume-block"><!--Resume Block-->
+
+          <div class = "resume-entry">
+              <img src = "../images/tutor.png" class = "circle"/>
+              <div class = "resume-description">
+                <p><strong>Math/English Tutor</strong></p>
+                <p>Tutor Associates, New York City</p>
+                <br>
+                <p>&#x2022 Teach academic mathematics and English to middle and high-school students</p>
+                <p style="margin-top: 5px">&#x2022 Tutor high-school entrance exams, the ACT/SAT, and SAT Subject Tests</p>
+              </div>
+              <div class = "resume-date">Jan. 2018 – Present</div>
+          </div> <!--Resume Entry-->
+
+          <div class = "resume-entry">
+            <img src = "../images/codesters.png" class="circle"/>
+            <div class = "resume-description">
+              <p><strong>Curriculum Developer</strong></p>
+              <p>Codesters, New York City</p>
+              <br>
+              <p>&#x2022 Devise curriculum for middle-schoolers learning basic Python</p>
+              <p style="margin-top: 5px">&#x2022 Code automatic feedback in online lessons for students</p>
+            </div>
+            <div class = "resume-date">Jan. 2018 – Present</div>
+          </div> <!--Resume Entry-->      
+        </div><!--Resume Block-->  
+      </div><!--Work Container-->
+
+      <div class = "language-container"><!--Language Container-->
+        <button class = "button-category active-resume language-button">Languages&nbsp;&nbsp;</button>
+        <div class ="languages-spoken">
+          <p class ="title-language"><strong>中文</strong></span></p>
+          <span class ="filled-circle"></span>
+          <span class ="filled-circle"></span>
+          <span class ="filled-circle"></span>
+          <span class ="empty-circle"></span>
+          <span class ="empty-circle"></span>
+          <span class ="rating">Intermediate</span>
+          <p class = "description">I taught myself Mandarin while in China. After the conclusion of my time abroad, I was able to have complex conversations with students and colleagues.</p> 
+          <p class = "title-language"><strong>Français</strong></p>
+          <span class ="filled-circle"></span>
+          <span class ="filled-circle"></span>
+          <span class ="filled-circle"></span>
+          <span class ="filled-circle"></span>
+          <span class ="empty-circle"></span>
+          <span class = "rating">Advanced</span>
+          <p class = "description">In my sophomore year of college, I studied abroad in Paris and Morocco, subsequently using my skills to analyze three French novels for my senior thesis.</p>
+          <p class ="title-language"><strong class = "white">Español</strong></p>
+          <span class ="filled-circle"></span>
+          <span class ="filled-circle"></span>
+          <span class ="filled-circle"></span>
+          <span class ="empty-circle"></span>
+          <span class ="empty-circle"></span>
+          <span class = "rating">Intermediate</span>
+          <p class = "description">I learned Spanish throughout middle and high school, scoring well enough on my AP Spanish exam to place out of my college's language requirement.</p>
+      </div>
+        <button class = "button-category active-resume language-button">Coding&nbsp;&nbsp;</button>
+        <div class ="languages-spoken">
+          <p class ="title-language"><strong>Java</strong></p>
+          <span class ="filled-circle"></span>
+          <span class ="filled-circle"></span>
+          <span class ="filled-circle"></span>
+          <span class ="empty-circle"></span>
+          <span class ="empty-circle"></span>
+          <span class="rating">Intermediate</span>
+          <p class = "description">In college, I took four computer science classes, using Java for the majority of my projects.</p> 
+          <p class = "title-language"><strong>Python</strong></p>
+          <span class ="filled-circle"></span>
+          <span class ="filled-circle"></span>
+          <span class ="filled-circle"></span>
+          <span class ="filled-circle"></span>
+          <span class ="empty-circle"></span>
+          <span class ="rating">Advanced</span>
+          <p class = "description">Initially learning Python in my first computer science class, I have solidified my skills while writing curriculum for Codesters, an educational platform that teaches middle schoolers how to code.</p>
+          <p class ="title-language"><strong>HTML/CSS</strong></p>
+          <span class ="filled-circle"></span>
+          <span class ="filled-circle"></span>
+          <span class ="empty-circle"></span>
+          <span class ="empty-circle"></span>
+          <span class ="empty-circle"></span>
+          <span class="rating">Learning</span>
+          <p class = "description">I have taught myself HTML/CSS, using both languages to construct this website.</p>
+        </div>
+
+        <button class = "button-category active-resume language-button">Photography&nbsp;&nbsp;</button>
+        <div class ="languages-spoken">
+          <p class ="title-language"><strong>DSLR</strong></p>
+          <p class = "description">Before I went abroad, I bought a DSLR and learned how to operate it in manual.</p> 
+          <p class = "title-language"><strong>International Center of Photography</strong></p>
+          <p class = "description">I have taken two classes, one as an introduction to digital photography and Adobe Lightroom and a continuing intermediate course.</p>
+        </div>
+
+      </div><!--Language Container-->
+
+      <footer>
+        <span class = "copyright">© 2019 Ben Weiss</span>
+      </footer>
+
+    </div><!--Resume Container-->
+
+    <script>
+      collapse();
+    </script>
+  </body>
+</html>

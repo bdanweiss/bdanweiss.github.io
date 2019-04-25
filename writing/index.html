@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>  
+  <head>
+    <script src ="../code.js"></script>
+    <link href="../style.css" type="text/css" rel="stylesheet">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Didact+Gothic|Merriweather|Noto+Serif|PT+Serif" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Ben Weiss | Writing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"> 
+  </head>
+
+  <body onresize="hideNavigation()">
+    
+    <!--Navigation Bar for Laptop/Desktop-->
+    <nav>
+      <i class="material-icons md-36 hamburger-icon " onclick = "showNavigation()">menu</i>
+      <a class = "title" href="../">Ben Weiss</a>
+      <span class = "contact-info">
+        <a href="www.linkedin.com" target="_blank"><img class = "icon" src = "../images/linkedin.png"/></a>
+        <script>
+          writeEmail();
+        </script>
+        <a href="https://twitter.com/bdanweiss/" target="_blank"><img class = "twitter icon" src = "../images/twitter.png"/></a>
+      </span>
+      <a class = "nav" href="../resume">Resume</a>
+      <a class = "nav active" href="./">Writing</a>
+    </nav>
+
+    <!--Navigation Bar for Smartphone-->
+
+      <nav id = "smartphone">
+        <i class="material-icons md-36 close-icon" onclick = "showNavigation()">close</i>
+        <a class = "title" href="../">Ben Weiss</a>
+        <span id = "contact-smartphone">
+          <a href="https://www.linkedin.com/in/benjamindweiss/" target="_blank"><img class = "phone-icon" src = "../images/linkedin.png"/></a>
+          <script>writeEmailPhone();</script>
+          <a href="https://twitter.com/bdanweiss/" target="_blank"><img class = "phone-icon twitter-phone" src = "../images/twitter.png"/></a>
+        </span>
+        <a class = "nav" href="./">Writing</a>
+        <a class = "nav" href="../resume">Resume</a>
+      </nav>
+
+    <div class ="writing-container">
+
+      <div class ="category-container">
+        <img class = "greenpointers-image" src = "./greenpointers.jpg"/>
+        <div class = "border-title"></div>
+
+        <div class = "article-container">
+          <img class = "article-image" src = "./article_images/keyfoodupdate.jpg"/>
+          <a class = "article-link" href ="https://greenpointers.com/2019/04/17/key-food-lock-out-enters-second-week-as-workers-rally-in-park-slope/" target ="blank">Key Food Lock Out Enters Second Week as Workers Rally in Park Slope</a>
+          <div class = "article-date">April 17th, 2019</div>
+        </div>
+
+        <div class = "article-container">
+          <img class = "article-image" src = "./article_images/keyfood.jpg"/>
+          <a class = "article-link" href ="https://greenpointers.com/2019/04/09/key-food-meat-department-locked-out-due-to-contract-dispute/" target ="blank">Key Food Meat Department Locked Out Due to Contract Dispute</a>
+          <div class = "article-date">April 9th, 2019</div>
+        </div>
+
+        <div class = "article-container">
+          <img class = "article-image" src = "./article_images/hiddenwaters.jpg"/>
+          <a class = "article-link" href ="https://greenpointers.com/2019/02/26/greenpoints-hidden-waters-explored-at-a-d-o/" target ="blank">Greenpoint's Hidden Waters Explored at A/D/O</a>
+          <div class = "article-date">February 26th, 2019</div>
+        </div>
+
+        <div class = "article-container">
+          <img class = "article-image" src = "./article_images/plum.jpg"/>
+          <a class = "article-link" href ="https://greenpointers.com/2019/02/14/a-fruit-salad-more-than-a-decade-in-the-making/#more-99907" target ="blank">A Fruit Salad More Than a Decade in the Making</a>
+          <div class = "article-date">February 14th, 2019</div>
+        </div>
+
+      </div><!--category-container-->
+      
+      <div class ="category-container no-bottom-padding">
+        <img class = "gotham-image" src = "./gothamgazette_writing.jpg"/>
+        <div class = "border-title"></div>
+
+        <div class = "article-container">
+          <img class = "article-image" src = "./article_images/poll_site.jpg"/>
+          <a class = "article-link" href ="http://www.gothamgazette.com/city/7374-many-election-poll-workers-are-placed-by-party-machines-some-may-influence-votes" target ="blank">Many Election Poll Workers are Placed by Party Machines, Some May Influence Votes</a>
+          <div class = "article-date">December 19th, 2017</div>
+        </div>
+
+        <div class = "article-container">
+          <img class = "article-image" src = "./article_images/smoking.jpg"/>
+          <a class = "article-link" href ="http://www.gothamgazette.com/city/7318-nycha-prepares-to-implement-smoking-ban" target ="blank">NYCHA Prepares to Implement Smoking Ban</a>
+          <div class = "article-date">November 14th, 2017</div>
+        </div>
+
+        <div class = "article-container">
+          <img class = "article-image" src = "./article_images/nycha_deblasio.jpg"/>
+          <a class = "article-link" href ="http://www.gothamgazette.com/city/7299-de-blasio-s-record-on-nycha" target ="blank">De Blasio's Record on NYCHA</a>
+          <div class = "article-date">November 6th, 2017</div>
+        </div>
+
+        <div class = "article-container">
+          <img class = "article-image" src = "./article_images/vacant_lot.jpg"/>
+          <a class = "article-link" href ="http://www.gothamgazette.com/city/7251-key-to-affordable-housing-development-vacant-lots-remain-source-of-controversy" target ="blank">Key to Affordable Housing Development, Vacant Lots Remain Source of Controversy</a>
+          <div class = "article-date">October 17th, 2017</div>
+        </div>
+
+        <div class = "article-container">
+          <img class = "article-image" src = "./article_images/rasmia2.jpeg"/>
+          <a class = "article-link" href ="http://www.gothamgazette.com/city/7211-nonprofit-linked-to-nycha-creates-crowdfunding-portal-for-sustainability-projects" target ="blank">Nonprofit Linked To NYCHA Creates Crowdfunding Portal For Sustainability Projects</a>
+          <div class = "article-date">September 22nd, 2017 </div>
+        </div>
+
+        <div class = "article-container">
+          <img class = "article-image" src = "./article_images/alicka_samuel.jpg"/>
+          <a class = "article-link" href ="http://www.gothamgazette.com/city/7202-tears-of-joy-hope-for-a-district-in-alicka-samuel-s-primary-day-win" target ="blank">'Tears of Joy,' Hope for a District in Alicka Samuel's Win</a>
+          <div class = "article-date">September 17th, 2017</div>
+        </div>
+
+        <div class = "article-container">
+          <img class = "article-image" src = "./article_images/mwbe_deblasio.jpg"/>
+          <a class = "article-link" href ="http://www.gothamgazette.com/city/7169-deputy-mayor-outlines-accountability-measures-for-mwbe-program" target ="blank">Deputy Mayor Outlines Accountability Measures for MWBE Program</a>
+          <div class = "article-date">September 5th, 2017</div>
+        </div>
+
+        <div class = "article-container">
+          <img class = "article-image" src = "./article_images/rasmia1.jpg"/>
+          <a class = "article-link" href ="http://www.gothamgazette.com/city/7160-nonprofit-supporting-nycha-adds-to-early-fundraising-programs" target ="blank">Nonprofit Supporting NYCHA Adds to Early Fundraising and Programs</a>
+          <div class = "article-date">August 29th, 2017</div>
+        </div>
+
+      </div><!--category-container-->
+
+      <script type="text/javascript">
+        showLink()
+      </script>
+
+      <footer>
+        <span class = "copyright">© 2019 Ben Weiss</span>
+      </footer>
+
+    </div><!--writing-container-->
+  </body>
+</html>
