@@ -34,12 +34,12 @@ function showNavigation() {
 
   // If the menu is hidden.
   if ((height == "") || (height == "0px")) {
-    phoneNav.style.height = "210px";
+    phoneNav.style.height = "130px";
 
     // Display everything inside the menu after 199 milliseconds
     window.setTimeout(function() {
       for (i = 0; i < links.length; i++) {
-        links[i].style.display = "block";
+        links[i].style.display = "inline-block";
       }
       title.style.display = "block";
       close.style.display = "inline-block";

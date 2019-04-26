@@ -97,6 +97,14 @@ nav a.email:hover, nav img.icon:hover, nav i.icon:hover {
 #smartphone i.close-icon {
   display: none;
 }
+.links-container {
+  width: 80%;
+  padding-left: 1.5%;
+  padding-bottom: 0;
+  display: flex;
+  float: center;
+  justify-content: space-around;
+}
 #contact-smartphone {
   display: none;
   position: absolute;
@@ -699,9 +707,8 @@ iframe {
     background-color: #BEBEBE;
   }
   nav a.nav {
-    width: 100%;
+    width: 40%;
     height: auto;
-    line-height: 40px;
     display: none;
   }
   nav a.title {
