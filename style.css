@@ -101,8 +101,7 @@ nav a.email:hover, nav img.icon:hover, nav i.icon:hover {
   width: 100%;
   padding-bottom: 0;
   display: flex;
-  float: center;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 #contact-smartphone {
   display: none;
@@ -706,7 +705,8 @@ iframe {
     background-color: #BEBEBE;
   }
   nav a.nav {
-    width: 50%;
+    width: auto;
+    padding-right: 40px;
     height: auto;
     display: none;
   }

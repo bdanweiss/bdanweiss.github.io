@@ -72,9 +72,9 @@ function changeSlidePosition() {
   var url = './intro_images/' + photos[imageCounter]
   background.style.backgroundImage = 'url("' + url + '"' +")";
   screenWidth = window.window.innerWidth;
-  if (screenWidth > 700) {  
+  if (screenWidth > 800) {  
     if (photos[imageCounter] == "me.jpg") {
-      background.style.backgroundPosition = "0% 30%";
+      background.style.backgroundPosition = "40% 30%";
     } 
     else {
       background.style.backgroundPosition = "0% 0%";
