@@ -158,7 +158,7 @@ function writeEmail() {
 function writeEmailPhone() {
   user = "bdanweiss";
   domain = "gmail.com";
-  document.write('<a class = "phone-email" href=\"mailto:' + user + '@' + domain + '\""><i class="material-icons">email</i></a>');
+  document.write('<a class = "phone-email" href=\"mailto:' + user + '@' + domain + '\""><i class="material-icons md-36">email</i></a>');
 }
 
 

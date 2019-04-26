@@ -74,6 +74,9 @@ nav a.email:hover, nav img.icon:hover, nav i.icon:hover {
   width: 19px;
   padding-bottom: 3.3px;
 }
+.linkedin {
+  margin-right: 4px;
+}
 
 /**** Smart Phone *******/
 #smartphone {
@@ -96,29 +99,39 @@ nav a.email:hover, nav img.icon:hover, nav i.icon:hover {
 }
 #contact-smartphone {
   display: none;
+  position: absolute;
+  right: 5px;
+  top: 20px;
+  width: 40px;
+  height: auto;
   flex-wrap: wrap;
-  padding-left: 5px;
-  color: black;
-  font-size: 20px;
 }
 nav a.phone-email {
   color: black;
   opacity: .5;
-  padding-top: 19.5px;
-  margin-left: 3px;
+  margin: 0 auto;
+  padding: 0;
 }
 nav a.phone-email:hover {
   opacity: .2;
 }
-
+nav a.twitter-phone {
+  margin: 0 auto;
+}
 .phone-icon {
+  margin: 0;
   padding: 0;
-  margin-top: 20px;
 }
 .twitter-phone {
-  height: 18px;
-  width: 18px;
-  padding-top: 3.3px;
+  width: 33px;
+  height: 33px;
+  padding-left: 3px;
+}
+.linkedin-phone {
+  width: 40px;
+  height: 40px;
+  margin-left: -0.5px;
+  margin-bottom: -5px;
 }
 .material-icons.md-36 { 
   font-size: 36px; 
