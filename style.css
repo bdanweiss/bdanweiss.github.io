@@ -123,14 +123,15 @@ nav a.twitter-phone {
   padding: 0;
 }
 .twitter-phone {
-  width: 27px;
-  height: 27px;
-  padding-top: 6.2px;
+  width: 33px;
+  height: 33px;
+  margin-left: 2px;
 }
 .linkedin-phone {
-  width: 34px;
-  height: 34px;
-  padding-top: 3px;
+  width: 40px;
+  height: 40px;
+  margin-left: -2px;
+  margin-bottom: -4px;
 }
 .material-icons.md-36 { 
   font-size: 36px; 
