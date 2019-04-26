@@ -101,7 +101,8 @@ nav a.email:hover, nav img.icon:hover, nav i.icon:hover {
   display: none;
   position: absolute;
   right: 5px;
-  top: 15px;
+  top: 5px;
+  width: 40px;
   flex-wrap: wrap;
   z-index: 1;
 }
