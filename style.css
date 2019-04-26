@@ -98,8 +98,7 @@ nav a.email:hover, nav img.icon:hover, nav i.icon:hover {
   display: none;
 }
 .links-container {
-  width: 90%;
-  padding-left: 1%;
+  width: 100%;
   padding-bottom: 0;
   display: flex;
   float: center;
@@ -707,7 +706,7 @@ iframe {
     background-color: #BEBEBE;
   }
   nav a.nav {
-    width: 40%;
+    width: 50%;
     height: auto;
     display: none;
   }
