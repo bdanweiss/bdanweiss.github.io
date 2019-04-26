@@ -98,8 +98,8 @@ nav a.email:hover, nav img.icon:hover, nav i.icon:hover {
   display: none;
 }
 .links-container {
-  width: 80%;
-  padding-left: 1.5%;
+  width: 90%;
+  padding-left: 1%;
   padding-bottom: 0;
   display: flex;
   float: center;
