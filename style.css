@@ -103,7 +103,6 @@ nav a.email:hover, nav img.icon:hover, nav i.icon:hover {
   right: 5px;
   top: 5px;
   width: 40px;
-  height: auto;
   flex-wrap: wrap;
   z-index: 1;
 }
