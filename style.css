@@ -101,16 +101,15 @@ nav a.email:hover, nav img.icon:hover, nav i.icon:hover {
   display: none;
   position: absolute;
   right: 5px;
-  top: 5px;
-  width: 40px;
+  top: 15px;
   flex-wrap: wrap;
   z-index: 1;
 }
 nav a.phone-email {
   color: black;
   opacity: .5;
-  margin: 0 auto;
-  padding: 0;
+  padding-top: 2px;
+  padding-right: 4px;
 }
 nav a.phone-email:hover {
   opacity: .2;
@@ -123,15 +122,14 @@ nav a.twitter-phone {
   padding: 0;
 }
 .twitter-phone {
-  width: 33px;
-  height: 33px;
-  padding-left: 3px;
+  width: 27px;
+  height: 27px;
+  padding-top: 6.2px;
 }
 .linkedin-phone {
-  width: 40px;
-  height: 40px;
-  margin-left: -0.5px;
-  margin-bottom: -5px;
+  width: 34px;
+  height: 34px;
+  padding-top: 3px;
 }
 .material-icons.md-36 { 
   font-size: 36px; 
