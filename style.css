@@ -121,9 +121,6 @@ nav a.phone-email {
 nav a.phone-email:hover {
   opacity: .2;
 }
-nav a.twitter-phone {
-  margin: 0 auto;
-}
 .phone-icon {
   margin: 0;
   padding: 0;
@@ -138,6 +135,10 @@ nav a.twitter-phone {
   height: 40px;
   margin-left: -2px;
   margin-bottom: -4px;
+}
+.linkedin-phone:hover, .twitter-phone:hover {
+  -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(0%);
 }
 .material-icons.md-36 { 
   font-size: 36px; 
