@@ -196,16 +196,12 @@ function showLink() {
       var image = children[0]
       var link = children[1]
       var date = children[2]
-      var next = this.nextElementSibling;
-
-      linkVisibility = link.style.visibility;
-      imageVisibility = image.style.visibility;
 
       imageWidth = image.width;
       link.style.width = (imageWidth - 5) + "px";
       date.style.width = (imageWidth - 5) + "px";
 
-      if ((linkVisibility == "hidden") || (linkVisibility == "")) {
+      if ((link.style.visibility == "hidden") || (link.style.visibility == "")) {
         link.style.visibility = "visible";
         date.style.visibility = "visible";
         link.style.opacity = "1";
@@ -213,6 +209,8 @@ function showLink() {
         image.style.visibility = "hidden";
         image.style.opacity = "0";
         this.style.border = "2px solid #BEBEBE"
+        image.style.height = "150px";
+        this.style.height = image.width;
         this.style.height = "150px";
       }
       else {
@@ -220,6 +218,7 @@ function showLink() {
         date.style.visibility = "hidden";
         link.style.opacity = "0";
         date.style.opacity = "0";
+        image.style.height = "110px";
         image.style.visibility = "visible";
         image.style.opacity = "1";
         this.style.border = ""

@@ -563,7 +563,7 @@ iframe {
   height: 110px;
   border-radius: 10px;
   margin: 0.8% 0.1% 0 0;
-  transition: height 0.2s, opacity 0.2s;
+  transition: height 0.2s, opacity 0.2s, width 0.2s;
   cursor: pointer;
 }
 .article-container:hover {
@@ -575,7 +575,7 @@ iframe {
   border-radius: 10px; 
   visibility: visible;
   opacity: 1;
-  transition: opacity 0.5s ease-out; 
+  transition: height 0.2s, opacity 0.5s, width 0.2s;
 }
 .article-date {
   position: absolute;
