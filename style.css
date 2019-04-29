@@ -67,7 +67,6 @@ nav a.email {
 nav a.email:hover, nav img.icon:hover, nav i.icon:hover {
   opacity: .4;
   filter: grayscale(0%);
-
 }
 .twitter {
   height: 19px;
@@ -102,6 +101,7 @@ nav a.email:hover, nav img.icon:hover, nav i.icon:hover {
   padding-bottom: 0;
   display: flex;
   justify-content: flex-start;
+  margin-left: 35px;
 }
 #contact-smartphone {
   display: none;

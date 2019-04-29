@@ -208,9 +208,8 @@ function showLink() {
         date.style.opacity = "1";
         image.style.visibility = "hidden";
         image.style.opacity = "0";
-        this.style.border = "2px solid #BEBEBE"
         image.style.height = "150px";
-        this.style.height = image.width;
+        this.style.border = "2px solid #BEBEBE"
         this.style.height = "150px";
       }
       else {
