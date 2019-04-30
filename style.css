@@ -703,7 +703,7 @@ iframe {
     content: "> ";
   }
   nav a.nav {
-    width: auto;
+    width: 125px;
     padding-right: 20px;
     height: auto;
     display: none;
