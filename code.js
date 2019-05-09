@@ -161,7 +161,6 @@ function writeEmailPhone() {
   document.write('<a class = "phone-email" href=\"mailto:' + user + '@' + domain + '\""><i class="material-icons md-36">email</i></a>');
 }
 
-
 /* This is for collapsing my boxes in my resume*/
 function collapse() {
   var button = document.getElementsByClassName("button-category");
