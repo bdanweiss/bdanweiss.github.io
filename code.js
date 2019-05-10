@@ -195,7 +195,7 @@ function showLink() {
       var image = children[0]
       var link = children[1]
       var date = children[2]
-
+      
       imageWidth = image.width;
       link.style.width = (imageWidth - 5) + "px";
       date.style.width = (imageWidth - 5) + "px";

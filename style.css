@@ -559,7 +559,6 @@ iframe {
 .article-container {
   display: inline-block;
   position: relative;
-  width: auto;
   height: 110px;
   border-radius: 10px;
   margin: 0.8% 0.1% 0 0;
@@ -571,7 +570,7 @@ iframe {
 }
 .article-image {
   min-width: 100%;
-  height: 100%;
+  height: 110px;
   border-radius: 10px; 
   visibility: visible;
   opacity: 1;
