@@ -195,7 +195,7 @@ function showLink() {
       var image = children[0]
       var link = children[1]
       var date = children[2]
-      
+
       imageWidth = image.width;
       link.style.width = (imageWidth - 5) + "px";
       date.style.width = (imageWidth - 5) + "px";
@@ -271,16 +271,16 @@ function codePage() {
       content.style.visibility = "visible";
       content.style.opacity = "1";
       cover.style.visibility = "hidden";
-
+      this.style.width = "100%";
       var element = event.target;
       var a = element;
-      var els = [];
-      while (a) {
-          els.unshift(a);
-          a = a.parentNode;
-      }
-      boxClicked = els.includes(box);
-      display = cover.style.display;
+      // var els = [];
+      // while (a) {
+      //     els.unshift(a);
+      //     a = a.parentNode;
+      // }
+      // boxClicked = els.includes(box);
+      // display = cover.style.display;
 
     });
   }
