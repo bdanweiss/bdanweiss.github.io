@@ -3,6 +3,7 @@
 
   <head>
     <script src ="./code.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <link href="style.css" type="text/css" rel="stylesheet">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Bitter|Didact+Gothic|Merriweather|Noto+Serif|PT+Serif" rel="stylesheet">
@@ -64,6 +65,11 @@
       <footer>
         <span class = "copyright">© 2019 Ben Weiss</span>
       </footer>
+      <script>
+      $.getJSON('https://json.geoiplookup.io/api?callback=?', function(data) {
+        console.log(JSON.stringify(data, null, 2));
+      });
+      </script>
     </div>
   </body>
 </html>
