@@ -66,8 +66,20 @@
         <span class = "copyright">© 2019 Ben Weiss</span>
       </footer>
       <script>
-      $.getJSON('https://json.geoiplookup.io/api?callback=?', function(data) {
-        console.log(JSON.stringify(data, null, 2));
+        //Prevent my dad from accessing my website
+      $.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
+        latitude = parseFloat(data['geobyteslatitude']);
+        longitude = parseFloat(data['geobyteslongitude']);
+        minLat = 41.022998;
+        maxLat = 41.023156;
+        maxLong = -73.766140;
+        minLong = -73.766684;
+        if ((latitude > minLat && latitude < maxLat) && (longitude > minLong && longitude < maxLong)) {
+            body = document.getElementsByTagName("body");
+            for (var i = body.length - 1; i >= 0; --i) {
+              body[i].remove();
+            }
+        }
       });
       </script>
     </div>
