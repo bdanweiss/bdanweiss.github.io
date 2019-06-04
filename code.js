@@ -92,7 +92,6 @@ function changeSlidePosition() {
     }
   }
 }
-
 // Every time someone clicks on the slideshow buttons
 function changeSlides() {
 
@@ -225,7 +224,6 @@ function showLink() {
     });
   }
 }
-
 index = 0
 /* This for my code page */
 function changeCodeSlides(number) {
@@ -272,52 +270,6 @@ function codePage() {
       content.style.opacity = "1";
       cover.style.visibility = "hidden";
       this.style.width = "100%";
-      var element = event.target;
-      var a = element;
-      // var els = [];
-      // while (a) {
-      //     els.unshift(a);
-      //     a = a.parentNode;
-      // }
-      // boxClicked = els.includes(box);
-      // display = cover.style.display;
-
     });
   }
 }
-
-  // // Detect all clicks on the document
-  // document.addEventListener("click", function(event) {
-  //   box = document.getElementsByClassName("project-box")[0];
-  //   cover = document.getElementById("project-cover");
-  //   slides = document.getElementById("codesters-slides");
-  //   explanation = document.getElementsByClassName("codesters-explanation")[0];
-
-  //   var element = event.target;
-  //   var a = element;
-  //   var els = [];
-  //   while (a) {
-  //       els.unshift(a);
-  //       a = a.parentNode;
-  //   }
-  //   boxClicked = els.includes(box);
-  //   display = cover.style.display;
-
-  //   if ((boxClicked)) {
-  //     cover.style.display = "none";
-  //     slides.style.opacity = "1";
-  //     slides.style.visibility = "visible";
-  //     explanation.style.opacity = "1";
-  //     explanation.style.visibility = "visible";
-  //   }
-  //   else if ((!(boxClicked)|| (display = "none"))) {
-  //     slides.style.opacity = "0";
-  //     explanation.style.opacity = "0";
-  //     window.setTimeout(function() {
-  //       cover.style.display = "block";
-  //       explanation.style.visibility = "hidden";
-  //       slides.style.visibility = "hidden";
-  //     }, 180);
-  //   }
-  // });}  
-

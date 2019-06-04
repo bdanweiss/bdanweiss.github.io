@@ -542,15 +542,15 @@ iframe {
   border-bottom: 2px solid #BEBEBE;
   visibility: hidden;
 }
-.greenpointers-image {
+.top-pub-label {
   display: block;
   margin-top: 20px;
   margin-bottom: 5px;
   width: 200px;
   height: auto;
-  opacity: .7;
+  opacity: .8;
 }
-.gotham-image {
+.pub-label {
   display: block;
   margin-top: 0px;
   width: 200px;
