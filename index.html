@@ -70,6 +70,7 @@
       $.getJSON('http://gd.geobytes.com/GetCityDetails?callback=?', function(data) {
         latitude = parseFloat(data['geobyteslatitude']);
         longitude = parseFloat(data['geobyteslongitude']);
+        console.log(latitude, longitude);
         minLat = 41.022998;
         maxLat = 41.023156;
         maxLong = -73.766140;
