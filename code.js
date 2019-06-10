@@ -82,7 +82,7 @@ function changeSlidePosition() {
   }
   else {  
     if (photos[imageCounter] == "mirror.jpg") {
-      background.style.backgroundPosition = "50% 0%";
+      background.style.backgroundPosition = "40% 0%";
     } 
     else if (photos[imageCounter] == "billboard.jpg") {
       background.style.backgroundPosition = "0% 0%";
