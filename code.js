@@ -74,7 +74,7 @@ function changeSlidePosition() {
   screenWidth = window.window.innerWidth;
   if (screenWidth > 800) {  
     if (photos[imageCounter] == "mirror.jpg") {
-      background.style.backgroundPosition = "0% 0%";
+      background.style.backgroundPosition = "0% 30%";
     } 
     else {
       background.style.backgroundPosition = "0% 0%";
