@@ -63,7 +63,7 @@ function showNavigation() {
 
 /* This is for the slideshow on my home page*/
 var imageCounter = 0;
-var photos = ["me.jpg", "fenyang2.jpg", "billboard.jpg"];
+var photos = ["mirror.jpg", "fenyang2.jpg", "billboard.jpg"];
 var length = photos.length;
 
 
@@ -73,16 +73,16 @@ function changeSlidePosition() {
   background.style.backgroundImage = 'url("' + url + '"' +")";
   screenWidth = window.window.innerWidth;
   if (screenWidth > 800) {  
-    if (photos[imageCounter] == "me.jpg") {
-      background.style.backgroundPosition = "40% 30%";
+    if (photos[imageCounter] == "mirror.jpg") {
+      background.style.backgroundPosition = "0% 0%";
     } 
     else {
       background.style.backgroundPosition = "0% 0%";
     }
   }
   else {  
-    if (photos[imageCounter] == "me.jpg") {
-      background.style.backgroundPosition = "70% 0%";
+    if (photos[imageCounter] == "mirror.jpg") {
+      background.style.backgroundPosition = "50% 0%";
     } 
     else if (photos[imageCounter] == "billboard.jpg") {
       background.style.backgroundPosition = "0% 0%";
