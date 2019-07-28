@@ -1,6 +1,3 @@
-# Threading example
-import time, thread
-
 def test():
 	print("sup")
 
