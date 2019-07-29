@@ -176,29 +176,6 @@ nav a.phone-email:hover {
   opacity: 0;
   transition: opacity .5s ease-out;
 }
-.slideshow {
-  font-size: 35px;
-  cursor: pointer;
-  position: absolute;
-  background: none;
-  border: none;
-  color: white;
-  transition: opacity .2s ease-out;
-}
-.next {
-  top: 50%;
-  right: 3%;
-}
-.previous {
-  top: 50%;
-  left: 3%;
-}
-.slideshow:focus {
-  outline:0;
-}
-.slideshow:hover {
-  opacity: .5;
-}
 #loader {
   position: absolute;
   top: 45%;
@@ -515,6 +492,75 @@ iframe {
 @keyframes fade {
   from {opacity: .4} 
   to {opacity: 1}
+}
+/********************** Photos Page **********************************/
+#photo-body {
+  position: relative;
+  margin:0;
+  padding:0;
+  min-height: 100vh;
+  width: 100%;
+  transition: background-color 0.5s, filter 0.5s;
+}
+.darken {
+  background-color: #E3E3E3;
+  filter: brightness(50%);
+  cursor: pointer;
+}
+#next {
+  visibility: hidden;
+  top: 50%;
+  right: 3%;
+}
+#previous {
+  visibility: hidden;
+  top: 50%;
+  left: 3%;
+}
+.slideshow {
+  font-size: 35px;
+  cursor: pointer;
+  position: absolute;
+  background: none;
+  border: none;
+  color: white;
+  transition: opacity .2s ease-out;
+}
+.slideshow:focus {
+  outline:0;
+}
+.slideshow:hover {
+  opacity: .5;
+}
+.carousel-section {
+  margin-left: 3%;
+}
+.photo-section-heading {
+  margin-left: 5px;
+}
+.carousel-container {
+  width: 90%;
+  display: flex;
+  overflow-x: auto;
+}
+.carousel-image {
+  height: 125px;
+  width: auto;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+#popup-image {
+  width: auto;
+  height: 75vh;
+  width: auto;
+  position: absolute;
+  left: 20%;
+  top: 10%;
+  box-shadow: 3px 3px 5px 3px #494848;
+}
+.carousel-image:hover {
+  opacity: .7;
 }
 /**********************Writing Page******************************/
 .writing-container {

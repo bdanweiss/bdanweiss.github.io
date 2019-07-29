@@ -224,7 +224,72 @@ function showLink() {
     });
   }
 }
-index = 0
+var currentElement = "";
+
+/* This is for my photos page */
+function createCarousel() {
+  // Go through all the different carousel images and add events to them
+  sections = document.getElementsByClassName("carousel-container");
+  for (i = 0; i < sections.length; i++) {
+    var children = sections[i].childNodes;
+    for (j = 0; j < children.length; j++) {
+
+      // Add a click event
+      children[j].addEventListener("click", function() {
+        event.stopPropagation();
+        currentElement = this;
+        var img = document.createElement("img");
+        img.src = this.src;
+        img.id = "popup-image";
+        background = document.getElementById("photo-body");
+        background.classList.add("darken");
+        document.body.appendChild(img);
+        buttons = document.getElementsByClassName("slideshow");
+        buttons[0].style.visibility = "visible"; 
+        buttons[1].style.visibility = "visible"; 
+        document.body.addEventListener("click", popupClicked);
+      });
+    }
+  }
+}
+function popupClicked() {
+  var target = event.target.id;
+  if ((target != "popup-image") && (target != "next") && (target != "previous")) {
+    image = document.getElementById("popup-image");
+    document.body.removeChild(image);
+    document.body.removeEventListener("click", popupClicked);
+    background = document.getElementById("photo-body");
+    if (event.target.className != "carousel-image") {
+      background.classList.remove("darken")
+    }
+  }
+}
+function next() {
+  document.body.addEventListener("click", popupClicked);
+  var next = currentElement.nextElementSibling;
+  try {    
+    var popup = document.getElementById("popup-image");
+    popup.src = next.src
+    currentElement = next;
+}
+  catch(error) {
+    currentElement = currentElement.previousElementSibling;
+  }
+}
+function previous() {
+  document.body.addEventListener("click", popupClicked);
+  var previous = currentElement.previousElementSibling;
+  
+  try {
+    var popup = document.getElementById("popup-image");
+    popup.src = previous.src
+    currentElement = previous;
+  }
+  catch(error) {
+    currentElement = currentElement.nextElementSibling;
+  }
+}
+
 /* This for my code page */
 function changeCodeSlides(number) {
 
