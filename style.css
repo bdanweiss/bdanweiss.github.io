@@ -520,7 +520,7 @@ iframe {
 .slideshow {
   font-size: 35px;
   cursor: pointer;
-  position: absolute;
+  position: fixed;
   background: none;
   border: none;
   color: white;
@@ -554,7 +554,7 @@ iframe {
   width: auto;
   height: 75vh;
   width: auto;
-  position: absolute;
+  position: fixed;
   left: 20%;
   top: 10%;
   box-shadow: 3px 3px 5px 3px #494848;

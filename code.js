@@ -113,21 +113,6 @@ function changeSlides() {
   });
   changeSlidePosition();
 }
-function next() {
-  imageCounter += 1;
-  imageCounter = imageCounter%length;
-  changeSlides();
-}
-function previous() {
-  if (imageCounter == 0) {
-    imageCounter = length -1
-  }
-  else {  
-    imageCounter --;
-    imageCounter = imageCounter%length;
-  }
-  changeSlides();
-}
 
 /* For when the home page initially loads */
 function hideBody() {
@@ -236,7 +221,6 @@ function createCarousel() {
 
       // Add a click event
       children[j].addEventListener("click", function() {
-        event.stopPropagation();
         currentElement = this;
         var img = document.createElement("img");
         img.src = this.src;
@@ -247,7 +231,9 @@ function createCarousel() {
         buttons = document.getElementsByClassName("slideshow");
         buttons[0].style.visibility = "visible"; 
         buttons[1].style.visibility = "visible"; 
-        document.body.addEventListener("click", popupClicked);
+        window.setTimeout(function() {
+          document.body.addEventListener("click", popupClicked);
+        }, 100);
       });
     }
   }
@@ -279,7 +265,7 @@ function next() {
 function previous() {
   document.body.addEventListener("click", popupClicked);
   var previous = currentElement.previousElementSibling;
-  
+
   try {
     var popup = document.getElementById("popup-image");
     popup.src = previous.src
@@ -325,7 +311,6 @@ function currentSlide(number) {
 
 function codePage() { 
   var boxes = document.getElementsByClassName("project-box");
-
   for (i = 0; i < boxes.length; i++) {
     boxes[i].addEventListener("click", function() {
       var children = this.children;
