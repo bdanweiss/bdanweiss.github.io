@@ -144,7 +144,6 @@ function writeEmailPhone() {
   domain = "gmail.com";
   document.write('<a class = "phone-email" href=\"mailto:' + user + '@' + domain + '\""><i class="material-icons md-36">email</i></a>');
 }
-
 /* This is for collapsing my boxes in my resume*/
 function collapse() {
   var button = document.getElementsByClassName("button-category");
@@ -166,7 +165,6 @@ function collapse() {
     });
   }
 }
-
 /* This for my writing page */
 function showLink() {
 
@@ -215,22 +213,22 @@ var currentElement = "";
 function createCarousel() {
   // Go through all the different carousel images and add events to them
   sections = document.getElementsByClassName("carousel-container");
+  window.addEventListener("resize", hideNavigation);
+
   for (i = 0; i < sections.length; i++) {
     var children = sections[i].childNodes;
     for (j = 0; j < children.length; j++) {
 
       // Add a click event
       children[j].addEventListener("click", function() {
-        currentElement = this;
-        var img = document.createElement("img");
-        img.src = this.src;
-        img.id = "popup-image";
-        background = document.getElementById("photo-body");
-        background.classList.add("darken");
-        document.body.appendChild(img);
+        createPopup(this);
+        // Make the buttons visible
         buttons = document.getElementsByClassName("slideshow");
-        buttons[0].style.visibility = "visible"; 
+        popup = document.getElementById("popup-image");
+        buttons[0].style.visibility = "visible";
         buttons[1].style.visibility = "visible"; 
+        // Wait a bit before adding the popupClicked event to prevent
+        // event bubbling.
         window.setTimeout(function() {
           document.body.addEventListener("click", popupClicked);
         }, 100);
@@ -238,15 +236,36 @@ function createCarousel() {
     }
   }
 }
+function createPopup(element) {
+  currentElement = element;
+  var img = document.createElement("img");
+  img.src = element.src;
+  img.id = "popup-image";
+  background = document.getElementById("photo-body");
+  background.classList.add("darken");
+  document.body.appendChild(img);
+  center(img);
+  window.addEventListener("resize", function() {
+    center(img);
+  });
+}
 function popupClicked() {
   var target = event.target.id;
   if ((target != "popup-image") && (target != "next") && (target != "previous")) {
     image = document.getElementById("popup-image");
     document.body.removeChild(image);
+    buttons = document.getElementsByClassName("slideshow");
+    buttons[0].style.visibility = "hidden"; 
+    buttons[1].style.visibility = "hidden"; 
     document.body.removeEventListener("click", popupClicked);
     background = document.getElementById("photo-body");
+    
     if (event.target.className != "carousel-image") {
       background.classList.remove("darken")
+    }
+    else {
+      buttons[0].style.visibility = "visible"; 
+      buttons[1].style.visibility = "visible"; 
     }
   }
 }
@@ -275,6 +294,31 @@ function previous() {
     currentElement = currentElement.nextElementSibling;
   }
 }
+function center(element) {
+  width = element.offsetWidth;
+  height = element.offsetHeight;
+  screenWidth = window.innerWidth;
+  screenHeight = window.innerHeight;
+
+  horizontalOffset = (screenWidth - width)/2;
+  verticalOffset = (screenHeight - height)/2;
+  element.style.left = String(horizontalOffset) + "px"
+  element.style.top = String(verticalOffset) + "px"
+  buttons = document.getElementsByClassName("slideshow");
+  // buttons[0].style.right = (horizontalOffset - 30) + "px"
+  // buttons[1].style.left = (horizontalOffset - 30) + "px"
+}
+
+
+
+
+
+
+
+
+
+
+
 
 /* This for my code page */
 function changeCodeSlides(number) {

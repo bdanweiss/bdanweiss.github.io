@@ -510,15 +510,16 @@ iframe {
 #next {
   visibility: hidden;
   top: 50%;
-  right: 3%;
+  right: 5%;
 }
 #previous {
   visibility: hidden;
   top: 50%;
-  left: 3%;
+  left: 5%;
 }
 .slideshow {
   font-size: 35px;
+  z-index: 1;
   cursor: pointer;
   position: fixed;
   background: none;
@@ -539,7 +540,7 @@ iframe {
   margin-left: 5px;
 }
 .carousel-container {
-  width: 90%;
+  width: 97%;
   display: flex;
   overflow-x: auto;
 }
@@ -551,12 +552,9 @@ iframe {
   transition: opacity 0.2s;
 }
 #popup-image {
-  width: auto;
-  height: 75vh;
+  height: 400px;
   width: auto;
   position: fixed;
-  left: 20%;
-  top: 10%;
   box-shadow: 3px 3px 5px 3px #494848;
 }
 .carousel-image:hover {
@@ -665,9 +663,17 @@ iframe {
     top: 40%;
     left: 40%;
   }
-  /******* Home Page ********/
   footer {
     text-align: center;
+  }
+  /********** Photos ********/
+  #popup-image {
+    width: 90%;
+    height: auto;
+  }
+  .slideshow {
+    background-color: black;
+    opacity: .7;
   }
   /******** Resume *********/
   .top {
