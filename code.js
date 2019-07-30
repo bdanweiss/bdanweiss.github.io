@@ -214,6 +214,7 @@ function createCarousel() {
   images = document.getElementsByClassName("carousel-image");
   window.addEventListener("resize", hideNavigation);
   for (i = 0; i < images.length; i++) {
+    addLoadingBox(images[i]);
     // Add a click event
     images[i].addEventListener("click", function() {
       createPopup(this);
@@ -244,15 +245,19 @@ function createPopup(element) {
   });
 }
 function addLoadingBox(image) {
-  loadingBox = document.createElement('div');
-  loadingBox.className = "loading-box";
-  image.parentNode.insertBefore(loadingBox, image.nextSibling);
-  image.addEventListener("load", function(){
-    this.nextSibling.remove();
-    this.style.display = "inline-block";
-  });
+  if (!image.complete) {
+    loadingBox = document.createElement('div');
+    loadingBox.className = "loading-box";
+    image.parentNode.insertBefore(loadingBox, image.nextSibling);
+    image.addEventListener("load", function(){
+      this.nextSibling.remove();
+      this.style.display = "inline-block";
+    });
+  }
+  else {
+    image.style.display = "inline-block";
+  }
 }
-
 function popupClicked() {
   var target = event.target.id;
   if ((target != "popup-image") && (target != "next") && (target != "previous")) {
