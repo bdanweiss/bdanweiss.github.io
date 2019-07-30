@@ -219,7 +219,7 @@ function createCarousel() {
     loadingBox.className = "loading-box";
     images[i].parentNode.insertBefore(loadingBox, images[i].nextSibling);
     images[i].addEventListener("load", function(){
-      this.nextSibling.style.display = "none";
+      this.nextSibling.remove();
       this.style.display = "inline-block";
     });
     // Add a click event
