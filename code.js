@@ -215,7 +215,6 @@ function createCarousel() {
   window.addEventListener("resize", hideNavigation);
   for (i = 0; i < images.length; i++) {
     // Add a click event
-    // addLoadingBox(images[i]);
     images[i].addEventListener("click", function() {
       createPopup(this);
       // Make the buttons visible
