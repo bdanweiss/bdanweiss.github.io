@@ -208,21 +208,14 @@ function showLink() {
   }
 }
 var currentElement = "";
-
 /* This is for my photos page */
 function createCarousel() {
   // Go through all the different carousel images and add events to them
   images = document.getElementsByClassName("carousel-image");
   window.addEventListener("resize", hideNavigation);
   for (i = 0; i < images.length; i++) {
-    loadingBox = document.createElement('div');
-    loadingBox.className = "loading-box";
-    images[i].parentNode.insertBefore(loadingBox, images[i].nextSibling);
-    images[i].addEventListener("load", function(){
-      this.nextSibling.remove();
-      this.style.display = "inline-block";
-    });
     // Add a click event
+    addLoadingBox(images[i]);
     images[i].addEventListener("click", function() {
       createPopup(this);
       // Make the buttons visible
@@ -251,6 +244,16 @@ function createPopup(element) {
     center(img);
   });
 }
+function addLoadingBox(image) {
+  loadingBox = document.createElement('div');
+  loadingBox.className = "loading-box";
+  image.parentNode.insertBefore(loadingBox, image.nextSibling);
+  image.addEventListener("load", function(){
+    this.nextSibling.remove();
+    this.style.display = "inline-block";
+  });
+}
+
 function popupClicked() {
   var target = event.target.id;
   if ((target != "popup-image") && (target != "next") && (target != "previous")) {
