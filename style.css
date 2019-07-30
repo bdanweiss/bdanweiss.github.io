@@ -542,7 +542,7 @@ iframe {
   opacity: .5;
 }
 .carousel-section {
-  margin-left: 3%;
+  margin-left: 2.5%;
 }
 .photo-section-heading {
   margin-left: 5px;
@@ -561,7 +561,7 @@ iframe {
   transition: opacity 0.2s;
 }
 #popup-image {
-  height: 400px;
+  height: 425px;
   width: auto;
   position: fixed;
   box-shadow: 3px 3px 5px 3px #494848;

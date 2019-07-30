@@ -281,9 +281,11 @@ function popupClicked() {
 function next() {
   document.body.addEventListener("click", popupClicked);
   var next = currentElement.nextElementSibling;
+
   try {    
     var popup = document.getElementById("popup-image");
     popup.src = next.src
+    center(popup);
     currentElement = next;
 }
   catch(error) {
@@ -297,6 +299,7 @@ function previous() {
   try {
     var popup = document.getElementById("popup-image");
     popup.src = previous.src
+    center(popup);
     currentElement = previous;
   }
   catch(error) {
