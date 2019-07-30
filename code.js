@@ -212,28 +212,30 @@ var currentElement = "";
 /* This is for my photos page */
 function createCarousel() {
   // Go through all the different carousel images and add events to them
-  sections = document.getElementsByClassName("carousel-container");
+  images = document.getElementsByClassName("carousel-image");
   window.addEventListener("resize", hideNavigation);
-
-  for (i = 0; i < sections.length; i++) {
-    var children = sections[i].childNodes;
-    for (j = 0; j < children.length; j++) {
-
-      // Add a click event
-      children[j].addEventListener("click", function() {
-        createPopup(this);
-        // Make the buttons visible
-        buttons = document.getElementsByClassName("slideshow");
-        popup = document.getElementById("popup-image");
-        buttons[0].style.visibility = "visible";
-        buttons[1].style.visibility = "visible"; 
-        // Wait a bit before adding the popupClicked event to prevent
-        // event bubbling.
-        window.setTimeout(function() {
-          document.body.addEventListener("click", popupClicked);
-        }, 100);
-      });
-    }
+  for (i = 0; i < images.length; i++) {
+    loadingBox = document.createElement('div');
+    loadingBox.className = "loading-box";
+    images[i].parentNode.insertBefore(loadingBox, images[i].nextSibling);
+    images[i].addEventListener("load", function(){
+      this.nextSibling.style.display = "none";
+      this.style.display = "inline-block";
+    });
+    // Add a click event
+    images[i].addEventListener("click", function() {
+      createPopup(this);
+      // Make the buttons visible
+      buttons = document.getElementsByClassName("slideshow");
+      popup = document.getElementById("popup-image");
+      buttons[0].style.visibility = "visible";
+      buttons[1].style.visibility = "visible"; 
+      // Wait a bit before adding the popupClicked event to prevent
+      // event bubbling.
+      window.setTimeout(function() {
+        document.body.addEventListener("click", popupClicked);
+      }, 100);
+    });
   }
 }
 function createPopup(element) {
@@ -304,9 +306,6 @@ function center(element) {
   verticalOffset = (screenHeight - height)/2;
   element.style.left = String(horizontalOffset) + "px"
   element.style.top = String(verticalOffset) + "px"
-  buttons = document.getElementsByClassName("slideshow");
-  // buttons[0].style.right = (horizontalOffset - 30) + "px"
-  // buttons[1].style.left = (horizontalOffset - 30) + "px"
 }
 
 
