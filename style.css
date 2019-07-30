@@ -554,7 +554,7 @@ iframe {
 }
 .carousel-image {
   height: 125px;
-  display: none;
+  display: inline-block;
   width: auto;
   margin: 0 5px;
   cursor: pointer;
