@@ -9,7 +9,7 @@ function hideNavigation() {
   var contactInfo = document.getElementById("contact-smartphone");
 
   if (screenWidth > 700) {
-    phoneNav.style.height = "0px";
+    phoneNav.style.width = "0px";
     title.style.display = "none";
     close.style.display = "none";
     contactInfo.style.display = "none";
@@ -17,6 +17,7 @@ function hideNavigation() {
       links[i].style.display = "none";
     }
     phoneNav.style.borderBottom = "0px dashed black";
+    phoneNav.style.borderRight = "0px dashed black";
   }
 }
 
@@ -25,7 +26,7 @@ function showNavigation() {
 
   // Find all of the HTML elements in my smartphone menu.
   var phoneNav = document.getElementById("smartphone");
-  var height = phoneNav.style.height
+  var width = phoneNav.style.width
   var links = phoneNav.getElementsByClassName("nav");
   var title = phoneNav.getElementsByClassName("title")[0];
   var close = phoneNav.getElementsByClassName("close-icon")[0];
@@ -33,8 +34,8 @@ function showNavigation() {
   var contactInfoImages = document.getElementById("contact-smartphone");
 
   // If the menu is hidden.
-  if ((height == "") || (height == "0px")) {
-    phoneNav.style.height = "130px";
+  if ((width == "") || (width == "0px")) {
+    phoneNav.style.width = "300px";
 
     // Display everything inside the menu after 199 milliseconds
     window.setTimeout(function() {
@@ -45,11 +46,12 @@ function showNavigation() {
       close.style.display = "inline-block";
       contactInfo.style.display = "flex";
       phoneNav.style.borderBottom = "2px dashed black";
+      phoneNav.style.borderRight = "2px dashed black";
     }, 180);
   }
   // If the menu is displayed.
   else {
-    phoneNav.style.height = "0px";
+    phoneNav.style.width = "0px";
     title.style.display = "none";
     close.style.display = "none";
     contactInfo.style.display = "none";
@@ -57,6 +59,7 @@ function showNavigation() {
       links[i].style.display = "none";
     }
     phoneNav.style.borderBottom = "0px dashed black";
+    phoneNav.style.borderRight = "0px dashed black";
   }
 }
 /* This is for the slideshow on my home page*/
