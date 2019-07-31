@@ -76,6 +76,7 @@ nav a.email:hover, nav img.icon:hover, nav i.icon:hover {
 .linkedin {
   margin-right: 4px;
 }
+
 /********************** Smart Phone *************************/
 #smartphone {
   height: 0;
@@ -100,14 +101,14 @@ nav a.email:hover, nav img.icon:hover, nav i.icon:hover {
   padding-bottom: 0;
   display: flex;
   justify-content: flex-start;
-  margin-left: 10px;
+  margin-left: 13px;
 }
 #contact-smartphone {
   display: none;
   position: absolute;
   right: 0px;
-  top: 0px;
-  width: 36px;
+  top: 5px;
+  width: 40px;
   flex-wrap: wrap;
   z-index: 1;
 }
@@ -128,7 +129,7 @@ nav a.phone-email:hover {
   width: 33px;
   height: 33px;
   margin-left: 2px;
-  margin-top: -4px;
+  margin-top: -2px;
 }
 .linkedin-phone {
   width: 40px;
@@ -762,11 +763,8 @@ iframe {
   .contact-info {
     display: none;
   }
-  nav a.nav:before {
-    content: ""
-  }
   nav a.nav {
-    width: 30%;
+    width: 90px;
     margin: 0;
     padding: 0;
     display: none;
