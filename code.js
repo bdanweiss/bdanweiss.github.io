@@ -60,7 +60,6 @@ function showNavigation() {
     phoneNav.style.borderBottom = "0px dashed black";
   }
 }
-
 /* This is for the slideshow on my home page*/
 // Every time someone clicks on the slideshow buttons
 function loadBackground() {
@@ -215,6 +214,8 @@ function addLoadingBox(image) {
   if (!image.complete) {
     loadingBox = document.createElement('div');
     loadingBox.className = "loading-box";
+    loadingBox.offsetHeight = image.offsetHeight;
+    loadingBox.offsetWidth = image.offsetWidth;
     image.parentNode.insertBefore(loadingBox, image.nextSibling);
     image.addEventListener("load", function(){
       this.nextSibling.remove();
