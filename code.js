@@ -62,44 +62,13 @@ function showNavigation() {
 }
 
 /* This is for the slideshow on my home page*/
-var imageCounter = 0;
-var photos = ["me.jpg", "fenyang2.jpg", "billboard.jpg"];
-var length = photos.length;
-
-
-// Making the photos are always in the best position
-function changeSlidePosition() {
-  var url = './intro_images/' + photos[imageCounter]
-  background.style.backgroundImage = 'url("' + url + '"' +")";
-  screenWidth = window.window.innerWidth;
-  if (screenWidth > 800) {  
-    if (photos[imageCounter] == "me.jpg") {
-      background.style.backgroundPosition = "40% 30%";
-    } 
-    else {
-      background.style.backgroundPosition = "0% 0%";
-    }
-  }
-  else {  
-    if (photos[imageCounter] == "me.jpg") {
-      background.style.backgroundPosition = "70% 0%";
-    } 
-    else if (photos[imageCounter] == "billboard.jpg") {
-      background.style.backgroundPosition = "0% 0%";
-    }
-    else {
-      background.style.backgroundPosition = "40% 0%";
-    }
-  }
-}
 // Every time someone clicks on the slideshow buttons
-function changeSlides() {
-
+function loadBackground() {
   // This for loading my pictures. First make an image object.
   showLoader();
   hideBody();
   var slide_image = new Image();
-  var url = './intro_images/' + photos[imageCounter]
+  var url = './intro_images/me.jpg'
   slide_image.src = url;
 
   // Once the image object is done loading, make the background-image 
@@ -111,9 +80,7 @@ function changeSlides() {
     showBody();
     hideLoader();
   });
-  changeSlidePosition();
 }
-
 /* For when the home page initially loads */
 function hideBody() {
   slideshow = document.getElementById("background-slideshow");

@@ -158,7 +158,6 @@ nav a.phone-email:hover {
   cursor: pointer;
 }
 /**********************Home Page Layout******************************/
-
 #background-slideshow {
   font-family: 'Didact Gothic', sans-serif;
   display: inline-block;
@@ -169,7 +168,7 @@ nav a.phone-email:hover {
   width: 100%;
   background-image: url(./intro_images/me.jpg);
   background-size: cover;
-  background-position: 0% 0%;
+  background-position: 40% 30%;
   transition: background-image 0.5s ease-out;  
   display: inline-block;
   color: white;
@@ -546,6 +545,8 @@ iframe {
 }
 .photo-section-heading {
   margin-left: 5px;
+  font-size: 23px;
+  font-weight: 400;
 }
 .carousel-container {
   width: 97%;
@@ -672,6 +673,9 @@ iframe {
   }
   footer {
     text-align: center;
+  }
+  #background-slideshow {
+    background-position: 70% 0%;
   }
   /********** Photos ********/
   #popup-image {
