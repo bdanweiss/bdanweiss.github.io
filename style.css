@@ -207,6 +207,9 @@ footer {
   text-align: right;
   margin-bottom: 10px;
 }
+.photo-footer {
+  margin-bottom: 0px;
+}
 .copyright {
   padding-right: 2%;
 }
@@ -504,7 +507,7 @@ iframe {
   position: relative;
   margin:0;
   padding:0;
-  min-height: 100vh;
+  min-height: 115vh;
   width: 100%;
   transition: background-color 0.5s, filter 0.5s;
 }
