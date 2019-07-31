@@ -47,7 +47,6 @@ function showNavigation() {
       phoneNav.style.borderBottom = "2px dashed black";
     }, 180);
   }
-
   // If the menu is displayed.
   else {
     phoneNav.style.height = "0px";
@@ -214,8 +213,6 @@ function addLoadingBox(image) {
   if (!image.complete) {
     loadingBox = document.createElement('div');
     loadingBox.className = "loading-box";
-    loadingBox.offsetHeight = image.offsetHeight;
-    loadingBox.offsetWidth = image.offsetWidth;
     image.parentNode.insertBefore(loadingBox, image.nextSibling);
     image.addEventListener("load", function(){
       this.nextSibling.remove();
