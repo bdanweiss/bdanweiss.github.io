@@ -1,26 +1,10 @@
 /* This is for if someone resizes the window */
 function hideNavigation() {
   var screenWidth = window.window.innerWidth;
-  var phoneNav = document.getElementById("smartphone");
-  var height = phoneNav.style.height
-  var links = phoneNav.getElementsByClassName("nav");
-  var title = phoneNav.getElementsByClassName("title")[0];
-  var close = phoneNav.getElementsByClassName("close-icon")[0];
-  var contactInfo = document.getElementById("contact-smartphone");
-
   if (screenWidth > 700) {
-    phoneNav.style.width = "0px";
-    title.style.display = "none";
-    close.style.display = "none";
-    contactInfo.style.display = "none";
-    for (i = 0; i < links.length; i++) {
-      links[i].style.display = "none";
-    }
-    phoneNav.style.borderBottom = "0px dashed black";
-    phoneNav.style.borderRight = "0px dashed black";
+    closeNavigation();
   }
 }
-
 /* This for changing the navigation in small windows */
 function showNavigation() {
 
@@ -51,16 +35,26 @@ function showNavigation() {
   }
   // If the menu is displayed.
   else {
-    phoneNav.style.width = "0px";
-    title.style.display = "none";
-    close.style.display = "none";
-    contactInfo.style.display = "none";
-    for (i = 0; i < links.length; i++) {
-      links[i].style.display = "none";
-    }
-    phoneNav.style.borderBottom = "0px dashed black";
-    phoneNav.style.borderRight = "0px dashed black";
+    closeNavigation();
   }
+}
+function closeNavigation() {
+  var phoneNav = document.getElementById("smartphone");
+  var height = phoneNav.style.height
+  var links = phoneNav.getElementsByClassName("nav");
+  var title = phoneNav.getElementsByClassName("title")[0];
+  var close = phoneNav.getElementsByClassName("close-icon")[0];
+  var contactInfo = document.getElementById("contact-smartphone");
+
+  phoneNav.style.width = "0px";
+  title.style.display = "none";
+  close.style.display = "none";
+  contactInfo.style.display = "none";
+  for (i = 0; i < links.length; i++) {
+    links[i].style.display = "none";
+  }
+  phoneNav.style.borderBottom = "0px dashed black";
+  phoneNav.style.borderRight = "0px dashed black";
 }
 /* This is for the slideshow on my home page*/
 // Every time someone clicks on the slideshow buttons
