@@ -173,25 +173,29 @@ var currentElement = "";
 /* This is for my photos page */
 function createCarousel() {
   // Go through all the different carousel images and add events to them
-  images = document.getElementsByClassName("carousel-image");
-  window.addEventListener("resize", hideNavigation);
+  images = document.querySelectorAll(".carousel-image");
+  // window.addEventListener("resize", hideNavigation);
   for (i = 0; i < images.length; i++) {
+    console.log(images[i]);
     addLoadingBox(images[i]);
+    addPopupListener(images[i])
     // Add a click event
-    images[i].addEventListener("click", function() {
-      createPopup(this);
-      // Make the buttons visible
-      buttons = document.getElementsByClassName("slideshow");
-      popup = document.getElementById("popup-image");
-      buttons[0].style.visibility = "visible";
-      buttons[1].style.visibility = "visible"; 
-      // Wait a bit before adding the popupClicked event to prevent
-      // event bubbling.
-      window.setTimeout(function() {
-        document.body.addEventListener("click", popupClicked);
-      }, 100);
-    });
   }
+}
+function addPopupListener(image){
+  image.addEventListener("click", function() {
+    createPopup(this);
+    // Make the buttons visible
+    buttons = document.getElementsByClassName("slideshow");
+    popup = document.getElementById("popup-image");
+    buttons[0].style.visibility = "visible";
+    buttons[1].style.visibility = "visible"; 
+    // Wait a bit before adding the popupClicked event to prevent
+    // event bubbling.
+    window.setTimeout(function() {
+      document.body.addEventListener("click", popupClicked);
+    }, 100);
+  });
 }
 function createPopup(element) {
   currentElement = element;
@@ -207,15 +211,13 @@ function createPopup(element) {
   });
 }
 function addLoadingBox(image) {
-  var test_image = new Image();
-  test_image.src = image.src;
-
-  if (!test_image.complete) {
-    loadingBox = document.createElement('div');
+  if (!image.complete) {
+    var loadingBox = document.createElement('div');
     loadingBox.className = "loading-box";
-    image.parentNode.insertBefore(loadingBox, image.nextSibling);
+    loadingBox.setAttribute("data-id", image.src)
+    image.parentNode.replaceChild(loadingBox, image);
     image.addEventListener("load", function(){
-      this.nextSibling.remove();
+      this.parentNode.replaceChild(image, loadingBox);
       this.style.display = "inline-block";
     });
   }
