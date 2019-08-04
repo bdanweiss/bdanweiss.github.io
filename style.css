@@ -140,7 +140,6 @@ nav a.phone-email:hover {
   margin-top: 5px;
   margin-right: 5px;
   opacity: .3;
-  font-style: italic;
 }
 .linkedin-phone:hover, .twitter-phone:hover {
   -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
