@@ -178,6 +178,7 @@ function createCarousel() {
   for (i = 0; i < images.length; i++) {
     // Add the loading box event
     addLoadingBox(images[i]);
+    addPopupListener(images[i]);
   }
 }
 function addPopupListener(image) {
@@ -218,12 +219,10 @@ function addLoadingBox(image) {
     image.addEventListener("load", function(){
       loadingBox  = document.querySelector('div[data-id="' + this.src + '"]');
       loadingBox.parentNode.replaceChild(this, loadingBox);
-      addPopupListener(this);
     });
   }
   else {
     image.style.display = "inline-block";
-    addPopupListener(image);
   }
 }
 function popupClicked() {
