@@ -215,11 +215,10 @@ function addLoadingBox(image) {
     loadingBox = document.createElement('div');
     loadingBox.className = "loading-box";
     loadingBox.setAttribute("data-id", image.src)
-    parent = image.parentNode
     image.parentNode.replaceChild(loadingBox, image);
     image.addEventListener("load", function(){
       loadingBox = document.querySelector('[data-id="'+this.src+'"]');
-      parent.replaceChild(this, loadingBox)
+      loadingBox.parent.replaceChild(this, loadingBox);
     });
   }
   else {
