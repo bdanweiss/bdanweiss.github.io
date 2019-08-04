@@ -177,7 +177,6 @@ function createCarousel() {
   images = document.querySelectorAll(".carousel-image");
   // window.addEventListener("resize", hideNavigation);
   for (i = 0; i < images.length; i++) {
-    console.log(images[i]);
     addLoadingBox(images[i]);
     addPopupListener(images[i])
     // Add a click event
