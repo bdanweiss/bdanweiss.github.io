@@ -218,7 +218,7 @@ function addLoadingBox(image) {
     image.parentNode.replaceChild(loadingBox, image);
     image.addEventListener("load", function(){
       loadingBox = document.querySelector('[data-id="'+this.src+'"]');
-      loadingBox.parent.replaceChild(this, loadingBox);
+      loadingBox.parentNode.replaceChild(this, loadingBox);
     });
   }
   else {
