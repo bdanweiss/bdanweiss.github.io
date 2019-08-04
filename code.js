@@ -210,10 +210,16 @@ function addLoadingBox(image) {
   if (!image.complete) {
     loadingBox = document.createElement('div');
     loadingBox.className = "loading-box";
-    image.parentNode.insertBefore(loadingBox, image.nextSibling);
-    image.addEventListener("load", function(){
-      this.nextSibling.remove();
-      this.style.display = "inline-block";
+    loadingBox.setAttribute('data-id' , image.src);
+    image.parentNode.replaceChild(loadingBox, image);
+
+    var new_image = new Image();
+    new_image.src = image.src;
+    new_image.className = "carousel-image";
+
+    new_image.addEventListener("load", function(){
+      loadingBox  = document.querySelector('div[data-id="' + this.src + '"]');
+      loadingBox.parentNode.replaceChild(this, loadingBox);
     });
   }
   else {
