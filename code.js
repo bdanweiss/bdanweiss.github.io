@@ -181,7 +181,7 @@ function createCarousel() {
   }
 }
 function addPopupListener(image) {
-  images[i].addEventListener("click", function() {
+  image.addEventListener("click", function() {
     createPopup(this);
     // Make the buttons visible
     buttons = document.getElementsByClassName("slideshow");
