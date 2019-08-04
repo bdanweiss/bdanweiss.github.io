@@ -178,25 +178,21 @@ function createCarousel() {
   for (i = 0; i < images.length; i++) {
     // Add the loading box event
     addLoadingBox(images[i]);
-    addPopupListener(images[i]);
+    images[i].addEventListener("click", function() {
+      createPopup(this);
+      // Make the buttons visible
+      buttons = document.getElementsByClassName("slideshow");
+      popup = document.getElementById("popup-image");
+      buttons[0].style.visibility = "visible";
+      buttons[1].style.visibility = "visible"; 
+      // Wait a bit before adding the popupClicked event to prevent
+      // event bubbling.
+      window.setTimeout(function() {
+        document.body.addEventListener("click", popupClicked);
+      }, 100);
+    });
   }
 }
-function addPopupListener(image) {
-  image.addEventListener("click", function() {
-    createPopup(this);
-    // Make the buttons visible
-    buttons = document.getElementsByClassName("slideshow");
-    popup = document.getElementById("popup-image");
-    buttons[0].style.visibility = "visible";
-    buttons[1].style.visibility = "visible"; 
-    // Wait a bit before adding the popupClicked event to prevent
-    // event bubbling.
-    window.setTimeout(function() {
-      document.body.addEventListener("click", popupClicked);
-    }, 100);
-  });
-}
-
 function createPopup(element) {
   currentElement = element;
   var img = document.createElement("img");
