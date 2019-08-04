@@ -178,21 +178,24 @@ function createCarousel() {
   for (i = 0; i < images.length; i++) {
     addLoadingBox(images[i]);
     // Add a click event
-    images[i].addEventListener("click", function() {
-      createPopup(this);
-      // Make the buttons visible
-      buttons = document.getElementsByClassName("slideshow");
-      popup = document.getElementById("popup-image");
-      buttons[0].style.visibility = "visible";
-      buttons[1].style.visibility = "visible"; 
-      // Wait a bit before adding the popupClicked event to prevent
-      // event bubbling.
-      window.setTimeout(function() {
-        document.body.addEventListener("click", popupClicked);
-      }, 100);
-    });
   }
 }
+function addPopupListener(image) {
+  images[i].addEventListener("click", function() {
+    createPopup(this);
+    // Make the buttons visible
+    buttons = document.getElementsByClassName("slideshow");
+    popup = document.getElementById("popup-image");
+    buttons[0].style.visibility = "visible";
+    buttons[1].style.visibility = "visible"; 
+    // Wait a bit before adding the popupClicked event to prevent
+    // event bubbling.
+    window.setTimeout(function() {
+      document.body.addEventListener("click", popupClicked);
+    }, 100);
+  });
+}
+
 function createPopup(element) {
   currentElement = element;
   var img = document.createElement("img");
@@ -215,10 +218,12 @@ function addLoadingBox(image) {
     image.addEventListener("load", function(){
       loadingBox  = document.querySelector('div[data-id="' + this.src + '"]');
       loadingBox.parentNode.replaceChild(this, loadingBox);
+      addPopupListener(this);
     });
   }
   else {
     image.style.display = "inline-block";
+    addPopupListener(image);
   }
 }
 function popupClicked() {
