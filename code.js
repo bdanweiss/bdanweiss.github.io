@@ -176,23 +176,26 @@ function createCarousel() {
   images = document.getElementsByClassName("carousel-image");
   window.addEventListener("resize", hideNavigation);
   for (i = 0; i < images.length; i++) {
+    // Add the loading box event
     addLoadingBox(images[i]);
-    // Add a click event
-    images[i].addEventListener("click", function() {
-      createPopup(this);
-      // Make the buttons visible
-      buttons = document.getElementsByClassName("slideshow");
-      popup = document.getElementById("popup-image");
-      buttons[0].style.visibility = "visible";
-      buttons[1].style.visibility = "visible"; 
-      // Wait a bit before adding the popupClicked event to prevent
-      // event bubbling.
-      window.setTimeout(function() {
-        document.body.addEventListener("click", popupClicked);
-      }, 100);
-    });
   }
 }
+function addPopupListener(image) {
+  image.addEventListener("click", function() {
+    createPopup(this);
+    // Make the buttons visible
+    buttons = document.getElementsByClassName("slideshow");
+    popup = document.getElementById("popup-image");
+    buttons[0].style.visibility = "visible";
+    buttons[1].style.visibility = "visible"; 
+    // Wait a bit before adding the popupClicked event to prevent
+    // event bubbling.
+    window.setTimeout(function() {
+      document.body.addEventListener("click", popupClicked);
+    }, 100);
+  });
+}
+
 function createPopup(element) {
   currentElement = element;
   var img = document.createElement("img");
@@ -210,14 +213,17 @@ function addLoadingBox(image) {
   if (!image.complete) {
     loadingBox = document.createElement('div');
     loadingBox.className = "loading-box";
-    image.parentNode.insertBefore(loadingBox, image.nextSibling);
+    loadingBox.setAttribute('data-id' , image.src);
+    image.parentNode.replaceChild(loadingBox, image);
     image.addEventListener("load", function(){
-      this.nextSibling.remove();
-      this.style.display = "inline-block";
+      loadingBox  = document.querySelector('div[data-id="' + this.src + '"]');
+      loadingBox.parentNode.replaceChild(this, loadingBox);
+      addPopupListener(this);
     });
   }
   else {
     image.style.display = "inline-block";
+    addPopupListener(image);
   }
 }
 function popupClicked() {
