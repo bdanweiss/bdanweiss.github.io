@@ -173,6 +173,7 @@ var currentElement = "";
 /* This is for my photos page */
 function createCarousel() {
   // Go through all the different carousel images and add events to them
+  // Use querySelectorAll because it provides a STATIC list of images, not dynamic
   images = document.querySelectorAll(".carousel-image");
   // window.addEventListener("resize", hideNavigation);
   for (i = 0; i < images.length; i++) {
@@ -212,12 +213,13 @@ function createPopup(element) {
 }
 function addLoadingBox(image) {
   if (!image.complete) {
-    var loadingBox = document.createElement('div');
+    loadingBox = document.createElement('div');
     loadingBox.className = "loading-box";
     loadingBox.setAttribute("data-id", image.src)
     image.parentNode.replaceChild(loadingBox, image);
     image.addEventListener("load", function(){
-      this.parentNode.replaceChild(image, loadingBox);
+      loadingBox = document.querySelector('[data-id="'+this.src+'"]'); 
+      this.parentNode.replaceChild(this, loadingBox);
       this.style.display = "inline-block";
     });
   }
