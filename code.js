@@ -208,13 +208,9 @@ function createPopup(element) {
 }
 function addLoadingBox(image) {
   if (!image.complete) {
-    loadingBox = document.createElement('div');
+    var loadingBox = document.createElement('div');
     loadingBox.className = "loading-box";
-    image.parentNode.insertBefore(loadingBox, image.nextSibling);
-    image.addEventListener("load", function(){
-      this.nextSibling.remove();
-      this.style.display = "inline-block";
-    });
+    image.parentNode.replaceChild(loadingBox, image);
   }
   else {
     image.style.display = "inline-block";
