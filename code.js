@@ -176,8 +176,8 @@ function createCarousel() {
   images = document.getElementsByClassName("carousel-image");
   window.addEventListener("resize", hideNavigation);
   for (i = 0; i < images.length; i++) {
-    // Add the loading box event
     addLoadingBox(images[i]);
+    // Add a click event
     images[i].addEventListener("click", function() {
       createPopup(this);
       // Make the buttons visible
@@ -210,11 +210,10 @@ function addLoadingBox(image) {
   if (!image.complete) {
     loadingBox = document.createElement('div');
     loadingBox.className = "loading-box";
-    loadingBox.setAttribute('data-id' , image.src);
-    image.parentNode.replaceChild(loadingBox, image);
+    image.parentNode.insertBefore(loadingBox, image.nextSibling);
     image.addEventListener("load", function(){
-      loadingBox  = document.querySelector('div[data-id="' + this.src + '"]');
-      loadingBox.parentNode.replaceChild(this, loadingBox);
+      this.nextSibling.remove();
+      this.style.display = "inline-block";
     });
   }
   else {
