@@ -219,8 +219,6 @@ function addLoadingBox(image) {
     image.parentNode.replaceChild(loadingBox, image);
     image.addEventListener("load", function(){
       loadingBox = document.querySelector('[data-id="'+this.src+'"]'); 
-      this.parentNode.replaceChild(this, loadingBox);
-      this.style.display = "inline-block";
     });
   }
   else {
