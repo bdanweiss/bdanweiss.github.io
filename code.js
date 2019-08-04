@@ -207,7 +207,10 @@ function createPopup(element) {
   });
 }
 function addLoadingBox(image) {
-  if (!image.complete) {
+  var test_image = new Image();
+  test_image.src = image.src;
+
+  if (!test_image.complete) {
     loadingBox = document.createElement('div');
     loadingBox.className = "loading-box";
     image.parentNode.insertBefore(loadingBox, image.nextSibling);
