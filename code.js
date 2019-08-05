@@ -135,9 +135,9 @@ function showLink() {
 
   for (i = 0; i < containers.length; i++) {
     containers[i].addEventListener("click", function() {
+      addLoadingBox(this)
       var children = this.children
       var image = children[0]
-      addLoadingBox(image)
       var link = children[1]
       var date = children[2]
 
