@@ -695,6 +695,9 @@ iframe {
     background-color: black;
     opacity: .7;
   }
+  .photo-section-heading {
+    margin-bottom: 0;
+  }
   /******** Resume *********/
   .top {
     padding-top: 15px;
