@@ -206,6 +206,9 @@ footer {
   text-align: right;
   margin-bottom: 10px;
 }
+.photo-footer {
+  bottom: -40px;
+}
 .copyright {
   padding-right: 2%;
 }
@@ -547,9 +550,6 @@ iframe {
 }
 .carousel-section {
   margin-left: 2.5%;
-}
-.last-carousel-section {
-  margin-bottom: 40px;
 }
 .photo-section-heading {
   margin-left: 5px;
