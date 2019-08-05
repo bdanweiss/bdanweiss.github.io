@@ -10,7 +10,7 @@ function showNavigation() {
 
   // Find all of the HTML elements in my smartphone menu.
   var phoneNav = document.getElementById("smartphone");
-  var width = phoneNav.style.width
+  var width = phoneNav.style.width;
   var links = phoneNav.getElementsByClassName("nav");
   var title = phoneNav.getElementsByClassName("title")[0];
   var close = phoneNav.getElementsByClassName("close-icon")[0];
@@ -137,6 +137,7 @@ function showLink() {
     containers[i].addEventListener("click", function() {
       var children = this.children
       var image = children[0]
+      addLoadingBox(image)
       var link = children[1]
       var date = children[2]
 
