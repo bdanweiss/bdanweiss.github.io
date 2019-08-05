@@ -500,7 +500,6 @@ iframe {
 }
 /********************** Photos Page **********************************/
 #photo-body {
-  position: relative;
   margin:0;
   padding-bottom: 40px;
   width: 100%;
