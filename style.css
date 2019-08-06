@@ -794,6 +794,7 @@ iframe {
 @media only screen and (max-height: 700px) {
   #photo-footer {
     position: static;
+    margin-top: 10px;
   }
   #photo-body {
     height: 100%;
