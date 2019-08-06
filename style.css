@@ -795,4 +795,7 @@ iframe {
   footer {
     position: static;
   }
+  #photo-body {
+    height: 100%;
   }
+}
