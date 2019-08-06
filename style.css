@@ -792,7 +792,7 @@ iframe {
   }
 }
 @media only screen and (max-height: 700px) {
-  footer {
+  #photo-footer {
     position: static;
   }
   #photo-body {
