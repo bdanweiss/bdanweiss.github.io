@@ -604,9 +604,9 @@ iframe {
   display: block;
   margin-top: 20px;
   margin-bottom: 5px;
-  width: 200px;
+  width: 180px;
   height: auto;
-  opacity: .8;
+  opacity: .7;
 }
 .pub-label {
   display: block;
