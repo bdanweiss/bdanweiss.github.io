@@ -56,14 +56,13 @@ function closeNavigation() {
   phoneNav.style.borderBottom = "0px dashed black";
   phoneNav.style.borderRight = "0px dashed black";
 }
-/* This is for the slideshow on my home page*/
-// Every time someone clicks on the slideshow buttons
+  /* This for loading the background pic on my home page. */
 function loadBackground() {
-  // This for loading my pictures. First make an image object.
+  // First make an image object.
   showLoader();
   hideBody();
   var slide_image = new Image();
-  var url = './intro_images/me.jpg'
+  var url = './intro_images/mirror.jpg'
   slide_image.src = url;
 
   // Once the image object is done loading, make the background-image 

@@ -169,12 +169,13 @@ nav a.phone-email:hover {
   display: inline-block;
   margin:0;
   padding:0;
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 550px;
   position: relative;
   width: 100%;
   background-image: url(./intro_images/me.jpg);
   background-size: cover;
-  background-position: 40% 30%;
+  background-position: 0% 25%;
   transition: background-image 0.5s ease-out;  
   display: inline-block;
   color: white;
@@ -679,7 +680,7 @@ iframe {
     text-align: center;
   }
   #background-slideshow {
-    background-position: 70% 0%;
+    background-position: 50% 0%;
   }
   /********** Photos ********/
   #popup-image {
