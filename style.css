@@ -4,7 +4,6 @@ body {
   width: 100%;
   margin:0;
   padding:0;
-  min-height: 100vh;
   position: relative;
 }
 ::selection {
@@ -501,7 +500,7 @@ iframe {
 }
 /********************** Photos Page **********************************/
 #photo-body {
-  margin: 0;
+  margin:0;
   height: 100vh;
   width: 100%;
   transition: background-color 0.5s, filter 0.5s;
@@ -795,7 +794,8 @@ iframe {
 @media only screen and (max-height: 700px) {
   #photo-footer {
     position: static;
-    margin-top: 10px;
+    margin: 10px 0 0 0;
+    padding-bottom: 5px;
   }
   #photo-body {
     height: 100%;
