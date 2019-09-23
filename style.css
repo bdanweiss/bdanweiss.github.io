@@ -1,6 +1,7 @@
 body {
   font-family: 'Didact Gothic', sans-serif;
   display: inline-block;
+  min-height: 100vh;
   width: 100%;
   min-width: 250px;
   margin:0;
