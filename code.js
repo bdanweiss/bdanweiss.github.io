@@ -29,8 +29,7 @@ function showNavigation() {
       title.style.display = "block";
       close.style.display = "inline-block";
       contactInfo.style.display = "flex";
-      phoneNav.style.borderBottom = "2px dashed black";
-      phoneNav.style.borderRight = "2px dashed black";
+      phoneNav.style.boxShadow = "0px 5px 5px 0px #494848";
     }, 180);
   }
   // If the menu is displayed.
@@ -53,8 +52,7 @@ function closeNavigation() {
   for (i = 0; i < links.length; i++) {
     links[i].style.display = "none";
   }
-  phoneNav.style.borderBottom = "0px dashed black";
-  phoneNav.style.borderRight = "0px dashed black";
+    phoneNav.style.boxShadow = "3px 3px 5px 0px #494848;";
 }
   /* This for loading the background pic on my home page. */
 function loadBackground() {
