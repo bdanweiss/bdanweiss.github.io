@@ -210,12 +210,8 @@ function createPopup(element) {
 }
 function addLoadingBox(image) {
   if (!image.complete) {
-    imageHeight = image.height;
-    imageWidth = image.width;
     loadingBox = document.createElement('div');
     loadingBox.className = "loading-box";
-    loadingBox.style.minHeight = imageHeight + "px";
-    loadingBox.style.minWidth = imageWidth + "px";
     loadingBox.setAttribute("data-id", image.src)
     image.parentNode.replaceChild(loadingBox, image);
     image.addEventListener("load", function(){
