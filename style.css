@@ -742,7 +742,11 @@ iframe {
     font-size: 13px;
     text-align: left;
     margin-top: 20px;
-  } 
+  }
+  .circle {
+    width: 73.5px;
+    height: 73.5px;
+  }
   /********* Writing Page ***********/
 
   .category-container {
