@@ -603,17 +603,16 @@ iframe {
   width: 95%;
 }
 #first-article {
-  width: 50%;
+  width: 45%;
 }
 #other-articles {
-  width: 50%;
+  width: 52%;
   display: flex;
   flex-wrap: wrap;
   margin: -20px 0 0 0;
 }
 .first-article-image {
   width: 100%;
-  height: auto;
 }
 .second-article-image {
   width: 100%;
@@ -622,7 +621,7 @@ iframe {
 }
 .other-featured-articles {
   display: inline-block;
-  width: 40%;
+  width: 45%;
   margin: 20px 0 0 20px;
 }
 .other-selected-article {
@@ -735,6 +734,9 @@ iframe {
 
   .article-section {
     display: inline-block;
+  }
+  .first-article-image {
+    width: 93%;
   }
   #other-articles {
     width: 100%;
