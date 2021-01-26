@@ -553,6 +553,10 @@ iframe {
   margin-left: 5px;
   font-size: 23px;
   font-weight: 400;
+  margin-bottom: 10px;
+  padding-bottom: 2px;
+  border-bottom: 2px #BEBEBE solid;
+  width: 95%;
 }
 .carousel-container {
   width: 97%;
@@ -676,9 +680,11 @@ iframe {
     opacity: .7;
   }
   .photo-section-heading {
-    margin-bottom: 0;
+    margin-bottom: 10px;
+    padding-bottom: 2px;
+    border-bottom: 2px #BEBEBE solid;
+    width: 95%;
   }
-
   /******** Resume *********/
   .top {
     padding-top: 15px;
