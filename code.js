@@ -236,42 +236,42 @@ function center(element) {
   element.style.left = String(horizontalOffset) + "px"
   element.style.top = String(verticalOffset) + "px"
 }
-/* This is for my writing page */
-function setupWritingPage() {
-  // Go through all the different article images and add loading events to them
-  // Use querySelectorAll because it provides a STATIC list of images, not dynamic
-  containers = document.querySelectorAll(".article");
-  for (i = 0; i < containers.length; i++) {
-    addLoadingBoxWriting(containers[i].childNodes[1]);
-  }
-}
+// /* This is for my writing page */
+// function setupWritingPage() {
+//   // Go through all the different article images and add loading events to them
+//   // Use querySelectorAll because it provides a STATIC list of images, not dynamic
+//   containers = document.querySelectorAll(".article");
+//   for (i = 0; i < containers.length; i++) {
+//     addLoadingBoxWriting(containers[i].childNodes[1]);
+//   }
+// }
 
-function addLoadingBoxWriting(image) {
-  var img = document.createElement('img');
-  img.src = image.src;
-  var poll = setInterval(function () {
-      if (img.naturalWidth) {
-          clearInterval(poll);
-          imageRatio = img.naturalWidth/img.naturalHeight
-          styleDict = window.getComputedStyle(image);
-          width = styleDict.getPropertyValue('width');
-          width = parseInt(width, 10);
-          height = width/imageRatio
-          if (!image.complete) {
-            loadingBox = document.createElement('div');
-            loadingBox.className = "loading-box";
-            loadingBox.style.minWidth = width + "px"
-            loadingBox.style.minHeight = height + "px"
-            loadingBox.setAttribute("data-id", image.src)
-            image.parentNode.replaceChild(loadingBox, image);
-            image.addEventListener("load", function(){
-              loadingBox = document.querySelector('[data-id="'+this.src+'"]');
-              loadingBox.parentNode.replaceChild(this, loadingBox);
-            });
-          }
-          else {
-            image.style.display = "inline-block";
-          }
-      }
-  }, 10);
-}
+// function addLoadingBoxWriting(image) {
+//   var img = document.createElement('img');
+//   img.src = image.src;
+//   var poll = setInterval(function () {
+//       if (img.naturalWidth) {
+//           clearInterval(poll);
+//           imageRatio = img.naturalWidth/img.naturalHeight
+//           styleDict = window.getComputedStyle(image);
+//           width = styleDict.getPropertyValue('width');
+//           width = parseInt(width, 10);
+//           height = width/imageRatio
+//           if (!image.complete) {
+//             loadingBox = document.createElement('div');
+//             loadingBox.className = "loading-box";
+//             loadingBox.style.minWidth = width + "px"
+//             loadingBox.style.minHeight = height + "px"
+//             loadingBox.setAttribute("data-id", image.src)
+//             image.parentNode.replaceChild(loadingBox, image);
+//             image.addEventListener("load", function(){
+//               loadingBox = document.querySelector('[data-id="'+this.src+'"]');
+//               loadingBox.parentNode.replaceChild(this, loadingBox);
+//             });
+//           }
+//           else {
+//             image.style.display = "inline-block";
+//           }
+//       }
+//   }, 10);
+// }
