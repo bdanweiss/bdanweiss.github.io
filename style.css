@@ -604,6 +604,14 @@ iframe {
 .first-article-image {
   width: 100%;
 }
+.loading-box {
+  display: inline-block;
+  min-height: 125px;
+  min-width: 187.5px;
+  margin: 0 5px;
+  background-color: white;
+  border: 2px solid #BEBEBE;
+}
 .second-article-image {
   width: 100%;
   height: auto;

@@ -54,7 +54,7 @@ function closeNavigation() {
   }
     phoneNav.style.boxShadow = "3px 3px 5px 0px #494848;";
 }
-  /* This for loading the background pic on my home page. */
+/* This for loading the background pic on my home page. */
 function loadBackground() {
   // First make an image object.
   showLoader();
@@ -91,7 +91,6 @@ function showLoader() {
   loader = document.getElementById("loader");
   loader.style.display = "block";
 }
-
 /* This is for writing my email so no spam bots get it*/
 function writeEmail() {
   user = "bdanweiss";
@@ -124,60 +123,15 @@ function collapse() {
     });
   }
 }
-/* This for my writing page */
-function showLink() {
-
-  var containers = document.getElementsByClassName("article-container");
-  var i;
-
-  for (i = 0; i < containers.length; i++) {
-    containers[i].addEventListener("click", function() {
-      var children = this.children
-      var image = children[0]
-      addLoadingBox(image)
-      var link = children[1]
-      var date = children[2]
-
-      imageWidth = image.width;
-      link.style.width = (imageWidth - 5) + "px";
-      date.style.width = (imageWidth - 5) + "px";
-
-      if ((link.style.visibility == "hidden") || (link.style.visibility == "")) {
-        link.style.visibility = "visible";
-        date.style.visibility = "visible";
-        link.style.opacity = "1";
-        date.style.opacity = "1";
-        image.style.visibility = "hidden";
-        image.style.opacity = "0";
-        image.style.height = "160px";
-        this.style.border = "2px solid #BEBEBE"
-        this.style.height = "160px";
-      }
-      else {
-        link.style.visibility = "hidden";
-        date.style.visibility = "hidden";
-        link.style.opacity = "0";
-        date.style.opacity = "0";
-        image.style.height = "110px";
-        image.style.visibility = "visible";
-        image.style.opacity = "1";
-        this.style.border = ""
-        this.style.height = "110px";
-      }
-    });
-  }
-}
-var currentElement = "";
 /* This is for my photos page */
+var currentElement = "";
 function createCarousel() {
   // Go through all the different carousel images and add events to them
   // Use querySelectorAll because it provides a STATIC list of images, not dynamic
   images = document.querySelectorAll(".carousel-image");
-  // window.addEventListener("resize", hideNavigation);
   for (i = 0; i < images.length; i++) {
     addLoadingBox(images[i]);
     addPopupListener(images[i])
-    // Add a click event
   }
 }
 function addPopupListener(image){
@@ -282,62 +236,33 @@ function center(element) {
   element.style.left = String(horizontalOffset) + "px"
   element.style.top = String(verticalOffset) + "px"
 }
-
-
-
-
-
-
-
-
-
-
-
-
-/* This for my code page */
-function changeCodeSlides(number) {
-
-  slides = document.getElementsByClassName("codesters-frame");
-  dots = document.getElementsByClassName("dot");
-  dots[index].classList.toggle("active-dot");
-  slides[index].style.display = "none";
-  if (index == (slides.length - 1) && (number == 1)) {
-    index = 0;
-    slides[index].style.display = "inline-block";
+/* This is for my writing page */
+function setupWritingPage() {
+  // Go through all the different article images and add loading events to them
+  // Use querySelectorAll because it provides a STATIC list of images, not dynamic
+  containers = document.querySelectorAll(".article");
+  for (i = 0; i < containers.length; i++) {
+    addLoadingBoxWriting(containers[i].childNodes[1]);
   }
-  else if ((index == 0) && (number == -1)) {
-    index = slides.length - 1;
-    slides[index].style.display = "inline-block";
+}
+function addLoadingBoxWriting(image) {
+  styleDict = window.getComputedStyle(image);
+  width = styleDict.getPropertyValue('width');
+  height = styleDict.getPropertyValue('height');
+  console.log(width, height);
+  if (!image.complete) {
+    loadingBox = document.createElement('div');
+    loadingBox.className = "loading-box";
+    loadingBox.style.minWidth = width
+    loadingBox.style.minHeight = height
+    loadingBox.setAttribute("data-id", image.src)
+    image.parentNode.replaceChild(loadingBox, image);
+    image.addEventListener("load", function(){
+      loadingBox = document.querySelector('[data-id="'+this.src+'"]');
+      loadingBox.parentNode.replaceChild(this, loadingBox);
+    });
   }
   else {
-    slides[index + number].style.display = "inline-block";
-    index += number;
-  }
-  dots[index].classList.toggle("active-dot");
-}
-function currentSlide(number) {
-  slides = document.getElementsByClassName("codesters-frame");
-  dots = document.getElementsByClassName("dot");
-  for (i = 0; i < slides.length; i ++) {
-    slides[i].style.display = "none";
-    dots[i].classList.remove("active-dot");
-  }
-  index = number;
-  slides[index].style.display = "inline-block";
-  dots[index].classList.toggle("active-dot");
-}
-
-function codePage() { 
-  var boxes = document.getElementsByClassName("project-box");
-  for (i = 0; i < boxes.length; i++) {
-    boxes[i].addEventListener("click", function() {
-      var children = this.children;
-      var cover = children[0];
-      var content = children[1];
-      content.style.visibility = "visible";
-      content.style.opacity = "1";
-      cover.style.visibility = "hidden";
-      this.style.width = "100%";
-    });
+    image.style.display = "inline-block";
   }
 }
