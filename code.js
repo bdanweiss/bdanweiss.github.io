@@ -245,24 +245,33 @@ function setupWritingPage() {
     addLoadingBoxWriting(containers[i].childNodes[1]);
   }
 }
+
 function addLoadingBoxWriting(image) {
-  styleDict = window.getComputedStyle(image);
-  width = styleDict.getPropertyValue('width');
-  height = styleDict.getPropertyValue('height');
-  console.log(width, height);
-  if (!image.complete) {
-    loadingBox = document.createElement('div');
-    loadingBox.className = "loading-box";
-    loadingBox.style.minWidth = width
-    loadingBox.style.minHeight = height
-    loadingBox.setAttribute("data-id", image.src)
-    image.parentNode.replaceChild(loadingBox, image);
-    image.addEventListener("load", function(){
-      loadingBox = document.querySelector('[data-id="'+this.src+'"]');
-      loadingBox.parentNode.replaceChild(this, loadingBox);
-    });
-  }
-  else {
-    image.style.display = "inline-block";
-  }
+  var img = document.createElement('img');
+  img.src = image.src;
+  var poll = setInterval(function () {
+      if (img.naturalWidth) {
+          clearInterval(poll);
+          imageRatio = img.naturalWidth/img.naturalHeight
+          styleDict = window.getComputedStyle(image);
+          width = styleDict.getPropertyValue('width');
+          width = parseInt(width, 10);
+          height = width/imageRatio
+          if (!image.complete) {
+            loadingBox = document.createElement('div');
+            loadingBox.className = "loading-box";
+            loadingBox.style.minWidth = width + "px"
+            loadingBox.style.minHeight = height + "px"
+            loadingBox.setAttribute("data-id", image.src)
+            image.parentNode.replaceChild(loadingBox, image);
+            image.addEventListener("load", function(){
+              loadingBox = document.querySelector('[data-id="'+this.src+'"]');
+              loadingBox.parentNode.replaceChild(this, loadingBox);
+            });
+          }
+          else {
+            image.style.display = "inline-block";
+          }
+      }
+  }, 10);
 }
