@@ -257,23 +257,33 @@ function addLoadingBoxWriting(image) {
           width = styleDict.getPropertyValue('width');
           width = parseInt(width, 10);
           height = width/imageRatio
-          if (!image.complete) {
-            loadingBox = document.createElement('div');
-            loadingBox.className = "loading-box";
-            loadingBox.style.minWidth = width + "px"
-            loadingBox.style.minHeight = height + "px"
-            loadingBox.setAttribute("data-id", image.src)
-            image.parentNode.replaceChild(loadingBox, image);
-            image.addEventListener("load", function(){
-              loadingBox = document.querySelector('[data-id="'+this.src+'"]');
-              loadingBox.parentNode.replaceChild(this, loadingBox);
-            });
+          screenWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+          screenWidth = parseInt(screenWidth, 10);
+          if (screenWidth >= 700) {
+            replaceImageWithBox(image);
           }
           else {
             if (image.parentNode.className != "other-selected-article article") {
-              image.style.display = "inline-block";
+              replaceImageWithBox(image);
             }
           }
       }
   }, 10);
+}
+function replaceImageWithBox(image) {
+  if (!image.complete) {
+    loadingBox = document.createElement('div');
+    loadingBox.className = "loading-box";
+    loadingBox.style.minWidth = width + "px"
+    loadingBox.style.minHeight = height + "px"
+    loadingBox.setAttribute("data-id", image.src)
+    image.parentNode.replaceChild(loadingBox, image);
+    image.addEventListener("load", function(){
+      loadingBox = document.querySelector('[data-id="'+this.src+'"]');
+      loadingBox.parentNode.replaceChild(this, loadingBox);
+    });
+  }
+  else {
+    image.style.display = "inline-block";
+  }
 }
