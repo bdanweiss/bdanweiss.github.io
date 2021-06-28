@@ -265,7 +265,6 @@ function addLoadingBoxWriting(image) {
           else {
             if (image.parentNode.className != "other-selected-article article") {
               replaceImageWithBox(image);
-              console.log("sup");
             }
           }
       }
