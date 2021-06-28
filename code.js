@@ -247,6 +247,7 @@ function setupWritingPage() {
 }
 
 function addLoadingBoxWriting(image) {
+  // First, load the image in the background to be able to get the aspect ratio
   var img = document.createElement('img');
   img.src = image.src;
   var poll = setInterval(function () {
@@ -260,17 +261,17 @@ function addLoadingBoxWriting(image) {
           screenWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
           screenWidth = parseInt(screenWidth, 10);
           if (screenWidth >= 700) {
-            replaceImageWithBox(image);
+            replaceImageWithBox(image, width, height);
           }
           else {
             if (image.parentNode.className != "other-selected-article article") {
-              replaceImageWithBox(image);
+              replaceImageWithBox(image, width, height);
             }
           }
       }
   }, 10);
 }
-function replaceImageWithBox(image) {
+function replaceImageWithBox(image, width, height) {
   if (!image.complete) {
     loadingBox = document.createElement('div');
     loadingBox.className = "loading-box";
