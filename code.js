@@ -247,23 +247,34 @@ function setupWritingPage() {
 }
 
 function addLoadingBoxWriting(image) {
-  // First, load the image in the background to be able to get the aspect ratio
+  // Macro overview: load image in background to get aspect ratio, calcuate width/height, 
+  // replace image with loading box of same width/height, once image is done, swap out
+
+  // Create copy of the image
   var img = document.createElement('img');
   img.src = image.src;
+
+  // See if copy is loaded. (For some reason, it loads quicker than the actual one...)
   var poll = setInterval(function () {
       if (img.naturalWidth) {
           clearInterval(poll);
+
+          // Once copy is loaded, calculate the width/height of the loading box
           imageRatio = img.naturalWidth/img.naturalHeight
           styleDict = window.getComputedStyle(image);
           width = styleDict.getPropertyValue('width');
           width = parseInt(width, 10);
           height = width/imageRatio
+
+          // It gets a bit complicated because the layout changes for smartphones.
+          // I need to check if the screen width (either inner or actual) is smaller than 700
           screenWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
           screenWidth = parseInt(screenWidth, 10);
           if (screenWidth >= 700) {
             replaceImageWithBox(image, width, height);
           }
           else {
+            // If it's smaller, than I shouldn't add loading boxes for the images in the "other articles"
             if (image.parentNode.className != "other-selected-article article") {
               replaceImageWithBox(image, width, height);
             }
