@@ -244,6 +244,8 @@ function setupWritingPage() {
   for (i = 0; i < containers.length; i++) {
     addLoadingBoxWriting(containers[i].childNodes[1]);
   }
+  window.addEventListener('resize', hideOtherArticleImages);
+  hideOtherArticleImages();
 }
 
 function addLoadingBoxWriting(image) {
@@ -298,4 +300,21 @@ function replaceImageWithBox(image, width, height) {
   else {
     image.style.display = "inline-block";
   }
+}
+function hideOtherArticleImages() {
+    screenWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    screenWidth = parseInt(screenWidth, 10);
+    otherArticles = document.querySelectorAll(".other-selected-article");
+    if (screenWidth <= 700) {
+      for (i = 0; i < otherArticles.length; i++) {
+        image = otherArticles[i].childNodes[1];
+        image.style.display = "none";
+      }
+    }
+    else {
+      for (i = 0; i < otherArticles.length; i++) {
+        image = otherArticles[i].childNodes[1];
+        image.style.display = "inline-block";
+      }
+    }
 }
