@@ -314,7 +314,9 @@ function hideOtherArticleImages() {
     else {
       for (i = 0; i < otherArticles.length; i++) {
         image = otherArticles[i].childNodes[1];
-        image.style.display = "inline-block";
+        if (image.complete) {
+          image.style.display = "inline-block";
+        }
       }
     }
 }
