@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-<html prefix="og: https://ogp.me/ns#">
+<html lang="en-US" xmlns:og="http://opengraphprotocol.org/schema/">
   <head>
-    <script src ="./code.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <meta charset="utf-8"> 
     <link href="style.css" type="text/css" rel="stylesheet">
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Bitter|Didact+Gothic|Merriweather|Noto+Serif|PT+Serif" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <title>Ben Weiss | Journalist</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name = "description" content="I'm a journalist based in New York City. Among other topics, I cover technology, labor, and their intersections with migration."/>
-    <meta property="og:image" content="./images/mirror-preview.jpg" />
-    <meta property="og:image:width" content="180"/>
-    <meta property="og:image:height" content="110"/>
-    <meta charset="utf-8"> 
-  </head>
-  
-  <img style="display:none" src="./images/mirror-preview.jpg">
-  <body onload ="loadBackground()" onresize = "hideNavigation()">
 
     <!--Control search results-->
+    <meta property="og:url" content="https://benweiss.info"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Ben Weiss | Journalist"/>
+    <meta name = "og:description" content="I'm a journalist based in New York City. Among other topics, I cover technology, labor, and their intersections with migration."/>
+    <meta property="og:image" content="./images/mirror-preview.jpg" />
+    <script src ="./code.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+  </head>
+
+  <body onload ="loadBackground()" onresize = "hideNavigation()">
+
+    <!--Control search description-->
     <div style="display: none">I'm a journalist based in New York City. Among other topics, I cover technology, labor, and their intersections with migration.</div>
 
     <!--Loader-->
