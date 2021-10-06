@@ -60,7 +60,7 @@ function loadBackground() {
   showLoader();
   hideBody();
   var slide_image = new Image();
-  var url = './intro_images/mirror.jpg'
+  var url = './images/mirror.jpg'
   slide_image.src = url;
 
   // Once the image object is done loading, make the background-image 
