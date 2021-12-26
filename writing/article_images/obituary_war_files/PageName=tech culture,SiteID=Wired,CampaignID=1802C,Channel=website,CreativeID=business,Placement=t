@@ -1,0 +1,9 @@
+(function() {
+	    var d = new Date();
+	    var days = 180;
+	    d.setTime(d.getTime() + (days*24*60*60*1000));
+	    var expires = "expires="+ d.toUTCString();
+		var fpcookie = "fpcid=" + "4143425957996007926_FP" + ";" + expires + ";path=/; SameSite=None";
+		if (window.location.protocol == "https:") { fpcookie = fpcookie + "; Secure"; }
+	    document.cookie = fpcookie;
+})()
