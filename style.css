@@ -392,6 +392,8 @@ button:focus {
   margin: 0 0 3px 0;
 }
 .tooltip-combo {
+  position: absolute;
+  margin-left: 5px;
 }
 .question-mark {
   display: inline-block;
@@ -401,12 +403,11 @@ button:focus {
   background-color: black;
   color: white;
   border-radius: 50%;
-  margin: 0px 0 0px 0;
   cursor: pointer;
+  margin-top: 8px;
 }
 .tooltip {
-  visibility: hidden;
-  position: absolute;
+  display: none;
   color: white;
   padding: 5px;
   opacity: 0;
@@ -414,7 +415,7 @@ button:focus {
   font-size: 15px;
   background-color: black;
   border-radius: 10px;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 .carousel-container {
   width: 97%;

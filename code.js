@@ -143,12 +143,12 @@ function createCarousel() {
 function addHoverListener(tooltipCombo){
   tooltipCombo.addEventListener("mouseover", function() {
       tooltip = tooltipCombo.childNodes[3];
-      tooltip.style.visibility = "visible";
+      tooltip.style.display = "inline-block";
       tooltip.style.opacity = 0.9;
 
       tooltipCombo.addEventListener("mouseleave", function() {
         tooltip = tooltipCombo.childNodes[3];
-        tooltip.style.visibility = "hidden";
+        tooltip.style.display = "none";
         tooltip.style.opacity = 0;
       });
   });
