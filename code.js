@@ -127,12 +127,31 @@ function collapse() {
 var currentElement = "";
 function createCarousel() {
   // Go through all the different carousel images and add events to them
+  // Add hover events to tooltips near headings
   // Use querySelectorAll because it provides a STATIC list of images, not dynamic
+
   images = document.querySelectorAll(".carousel-image");
   for (i = 0; i < images.length; i++) {
     addLoadingBox(images[i]);
     addPopupListener(images[i])
   }
+  tooltipCombos = document.querySelectorAll(".tooltip-combo")
+  for (i = 0; i < tooltipCombos.length; i++) {
+    addHoverListener(tooltipCombos[i])
+  }
+}
+function addHoverListener(tooltipCombo){
+  tooltipCombo.addEventListener("mouseover", function() {
+      tooltip = tooltipCombo.childNodes[3];
+      tooltip.style.visibility = "visible";
+      tooltip.style.opacity = 0.9;
+
+      tooltipCombo.addEventListener("mouseleave", function() {
+        tooltip = tooltipCombo.childNodes[3];
+        tooltip.style.visibility = "hidden";
+        tooltip.style.opacity = 0;
+      });
+  });
 }
 function addPopupListener(image){
   image.addEventListener("click", function() {
@@ -140,8 +159,12 @@ function addPopupListener(image){
     // Make the buttons visible
     buttons = document.getElementsByClassName("slideshow");
     popup = document.getElementById("popup-image");
-    buttons[0].style.visibility = "visible";
-    buttons[1].style.visibility = "visible"; 
+    if (image.nextElementSibling != null) {
+      buttons[0].style.visibility = "visible";
+    }
+    if (image.previousElementSibling != null) {
+      buttons[1].style.visibility = "visible"; 
+    }
     // Wait a bit before adding the popupClicked event to prevent
     // event bubbling.
     window.setTimeout(function() {
@@ -199,30 +222,48 @@ function popupClicked() {
 }
 function next() {
   document.body.addEventListener("click", popupClicked);
+  var nextButton = document.getElementById("next");
+  var previousButton = document.getElementById("previous");
+  previousButton.style.visibility = "visible";
   var next = currentElement.nextElementSibling;
-
-  try {    
+  if (next == null){
+    nextButton.style.visibility = "hidden";
+  }
+  else {
+    var nextNext = next.nextElementSibling;
+    if (nextNext == null) {
+      nextButton.style.visibility = "hidden";
+    }
+    else {
+      nextButton.style.visibility = "visible";
+    }
     var popup = document.getElementById("popup-image");
     popup.src = next.src
     center(popup);
     currentElement = next;
-}
-  catch(error) {
-    currentElement = currentElement.previousElementSibling;
   }
 }
 function previous() {
   document.body.addEventListener("click", popupClicked);
+  var nextButton = document.getElementById("next");
+  var previousButton = document.getElementById("previous");
   var previous = currentElement.previousElementSibling;
-
-  try {
+  nextButton.style.visibility = "visible";
+  if (previous == null) {
+    previousButton.style.visibility = "hidden";
+  }
+  else {
+    var previousPrevious = previous.previousElementSibling;
+    if (previousPrevious == null) {
+      previousButton.style.visibility = "hidden";
+    }
+    else {
+      previousButton.style.visibility = "visible";
+    }
     var popup = document.getElementById("popup-image");
     popup.src = previous.src
     center(popup);
     currentElement = previous;
-  }
-  catch(error) {
-    currentElement = currentElement.nextElementSibling;
   }
 }
 function center(element) {

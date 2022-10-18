@@ -331,160 +331,6 @@ button:focus {
   height: 98px;
 }
 
-/**********************Code Page*******************************/
-iframe {
-  position: absolute;
-  height: 680px;
-  width: 500px;
-  -moz-transform: scale(0.60, 0.60); 
-  -webkit-transform: scale(0.60, 0.60); 
-  -o-transform: scale(0.60, 0.60);
-  -ms-transform: scale(0.60, 0.60);
-  transform: scale(0.60, 0.60); 
-  -moz-transform-origin: top left;
-  -webkit-transform-origin: top left;
-  -o-transform-origin: top left;
-  -ms-transform-origin: top left;
-  transform-origin: top left;
-}
-.code-container {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  margin-left: 2%;
-  padding: 0px 0px 3.5em 0px;
-}
-.project-box {
-  margin-bottom: 40px;
-  width: 45%;
-  padding: 2% 2% 2% 1%;
-  position: relative;
-  transition: width .2s ease-out;
-}
-.project-cover {
-  position: absolute;
-  height: 408px;
-  width: 95%;
-  background-color: white;
-  border: 2px solid #BEBEBE;
-  transition: background-color .2s ease-out;
-  cursor: pointer;
-  font-size: 30px;
-  text-align: center;
-  color: white;
-  border-radius: 10px;
-}
-.project-cover:hover {
-  background-color:rgb(220,220,220);
-}
-.project-content {
-  display: flex;
-  width: 100%;
-  position: relative;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .2s ease-out;
-}
-.title-web {
-  color: black;
-  padding-top: 25%;
-}
-.title-logo {
-  width: 250px;
-  padding-top: 25%;
-  padding-right: 3%;
-}
-.codesters-explanation {
-  width: 45%;
-  margin-left: 10px;
-  padding-right: 20px;
-  display: inline-block;
-  height: 408px;
-  border-right: 2px #BEBEBE solid;
-  border-radius: 10px;
-}
-.explanation-text {
-  margin-left: 5px;
-  font-size: 14px;
-  width: 90%;
-}
-.heading {
-  width: 95%;
-  display: inline-block;
-  margin-top: -20px;
-}
-#codesters-slides {
-  display: inline-block;
-  position: relative;
-  width: 300px;
-  height: 408px;
-}
-.codesters-frame {
-  width: 300px;
-  height: 408px;
-  position: relative;
-  display: none;
-}
-.prev, .codesters-next {
-  cursor: pointer;
-  position: absolute;
-  top: 105%;
-  margin-top: -15px;
-  padding: 4px 8px;
-  color: #BEBEBE;
-  font-weight: bold;
-  font-size: 17px;
-  transition: 0.6s ease;
-  border-radius: 50%;
-}
-.codesters-next {
-  right: 90px;
-}
-.prev {
-  left: 90px;
-}
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover, .codesters-next:hover {
-  background-color: #BEBEBE;
-  color: white !important;
-}
-
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  margin-top: 10px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
-}
-.active-dot {
-  background-color: #717171;
-}
-.dot:hover {
-  background-color: #717171;
-}
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1s;
-  animation-name: fade;
-  animation-duration: 1s;
-}
-
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
 /********************** Photos Page **********************************/
 #photo-body {
   margin:0;
@@ -534,14 +380,41 @@ iframe {
 .carousel-section {
   margin-left: 2.5%;
 }
-.photo-section-heading {
-  margin-left: 5px;
-  font-size: 23px;
-  font-weight: 400;
-  margin-bottom: 10px;
-  padding-bottom: 2px;
+.heading-container {
+  margin: 17px 0 10px 5px;
   border-bottom: 2px #BEBEBE solid;
   width: 95%;
+}
+.photo-section-heading {
+  display: inline-block;
+  font-size: 23px;
+  font-weight: 400;
+  margin: 0 0 3px 0;
+}
+.tooltip-combo {
+}
+.question-mark {
+  display: inline-block;
+  width: 15px;
+  text-align: center;
+  font-size: 12.5px;
+  background-color: black;
+  color: white;
+  border-radius: 50%;
+  margin: 0px 0 0px 0;
+  cursor: pointer;
+}
+.tooltip {
+  visibility: hidden;
+  position: absolute;
+  color: white;
+  padding: 5px;
+  opacity: 0;
+  transition: opacity 0.5s;
+  font-size: 15px;
+  background-color: black;
+  border-radius: 10px;
+  margin-left: 10px;
 }
 .carousel-container {
   width: 97%;
@@ -680,7 +553,7 @@ iframe {
     background-color: black;
     opacity: .7;
   }
-  .photo-section-heading {
+  .heading-container {
     margin-bottom: 10px;
     padding-bottom: 2px;
     border-bottom: 2px #BEBEBE solid;
@@ -690,8 +563,9 @@ iframe {
 @media only screen and (max-height: 700px) {
   #photo-footer {
     position: static;
-    margin: 10px 0 0 0;
-    padding-bottom: 10px;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            /* Footer height */
   }
   #photo-body {
     height: 100%;
