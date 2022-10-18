@@ -568,9 +568,6 @@ button:focus {
     width: 100%;
     height: 2.5rem;            /* Footer height */
   }
-  #photo-body {
-    height: 100%;
-  }
 }
   /********* Writing Page ***********/
   .article-section {
