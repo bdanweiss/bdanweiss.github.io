@@ -401,6 +401,9 @@ button:focus {
   border-bottom: 2px #BEBEBE solid;
   width: 97.5%;
 }
+.multimedia-section-heading {
+  margin-bottom: 5px;
+}
 #popup {
   position: fixed;
   z-index: 2;
