@@ -439,7 +439,8 @@ button:focus {
   height: 100%;
 }
 #multimedia-footer {
-  margin: 50px 0 10px 0;
+  margin-top: 50px;
+  padding-bottom: 10px;
   position: relative;
 }
 .slideshow {
