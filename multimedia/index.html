@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>  
+  <head>
+    <script src ="../code.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <link href="../style.css" type="text/css" rel="stylesheet">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Bitter|Didact+Gothic|Merriweather|Noto+Serif|PT+Serif" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <title>Ben Weiss | Photos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"> 
+  </head>
+  <body onresize="hideNavigation()">
+    <div id="multimedia-body">
+
+      <!--Navigation Bar for Laptop/Desktop-->
+      <nav>
+        <i class="material-icons md-36 hamburger-icon " onclick = "showNavigation()">menu</i>
+        <a class = "title" href="../">Ben Weiss</a>
+        <span class = "contact-info">
+          <a href="https://www.linkedin.com/in/benjamindweiss/" target="_blank"><img class = "linkedin icon" src = "../images/linkedin.png"/><a>
+          <script>
+            writeEmail();
+          </script>
+          <a href="https://twitter.com/bdanweiss/" target="_blank"><img class = "twitter icon" src = "../images/twitter.png"/></a>
+        </span>
+        <a class = "nav" href="../resume/">Resume</a>
+        <a class = "nav active" href="./">Multimedia</a>
+        <a class = "nav" href="../writing/">Writing</a>
+      </nav>
+      <!--END Navigation Bar for Laptop/Desktop-->
+
+      <!--Navigation Bar for Smartphone-->
+      <nav id = "smartphone">
+        <i class="material-icons md-36 close-icon" onclick = "showNavigation()">close</i>
+        <a class = "title" href="../">Ben Weiss</a>
+        <span id = "contact-smartphone">
+          <span id="contact-label">Contact:</span>
+          <a href="https://www.linkedin.com/in/benjamindweiss/" target="_blank"><img class = "phone-icon linkedin-phone" src = "../images/linkedin.png"/></a>          
+          <script>writeEmailPhone();</script>
+          <a href="https://twitter.com/bdanweiss/" target="_blank"><img class = "phone-icon twitter-phone" src = "../images/twitter.png"/></a>
+        </span>
+        <div class = "links-container">
+          <a class = "nav" href="../writing">Writing</a>
+          <a class = "nav active" href="./">Multimedia</a>
+          <a class = "nav" href="../resume">Resume</a>
+        </div>
+      </nav>
+      <!--END Navigation Bar for Smartphone-->
+
+      <div class="multimedia-section">
+        <div class = "heading-container">
+          <h2 class="photo-section-heading">Photos</h2>
+        </div>
+        <div class = "projects">  
+          <div class = "project" data-class="photo-gallery" data-count="15">
+            <img class = "project-image" src = "./multimedia_images/barney_1.jpg"/>
+            <div class="project-caption">
+              <div>From an article I wrote for Input about a New York City performance artist.</div>
+            </div>
+          </div>
+          <div class = "project" data-class="photo-gallery" data-count="19">
+            <img class = "project-image" src = "./multimedia_images/protests_1.jpg"/>
+            <div class="project-caption">
+              <div>From reporting I did for Greenpointers during the 2020 Black Lives Matter Protests in New York City.</div>
+            </div>
+          </div>
+          <div class = "project" data-class="photo-gallery" data-count="15">
+            <img class = "project-image" src = "./multimedia_images/bitcoin_1.jpg"/>
+            <div class="project-caption">
+              <div>From reporting I did on Bitcoin missionaries in Guatemala for Gizmodo.</div>
+            </div>
+          </div>
+        </div> <!--End projects section-->
+      </div> <!--End multimedia section-->
+
+      <div class="multimedia-section">
+        <div class = "heading-container">
+          <h2 class="photo-section-heading">Videos</h2>
+        </div>
+        <div class = "projects">  
+          <div class = "project" data-class="video-popup">
+            <img class = "project-image" data-url ="https://www.youtube.com/embed/jTxE3t8Ass4" src = "./multimedia_images/bosnian_rivers.png"/>
+            <div class="project-caption">
+              <div class="video-title">Saving Bosnia's Rivers</div>
+              <div class="video-publication"><em>Journeyman</em>, Sept. 26, 2022</div>
+            </div>
+          </div>
+          <div class = "project" data-class="video-popup">
+            <img class = "project-image" data-url ="https://www.youtube.com/embed/YrWs8jJCiZg" src = "./multimedia_images/ukraine+bosnia.png"/>
+            <div class="project-caption">
+              <div class="video-title">Caught between politics and heritage, Ukrainians in Bosnia grapple with the Russian invasion at home</div>
+              <div class="video-publication"><em>PBS NewsHour</em>, March 27, 2022</div>
+            </div>
+          </div>
+          <div class = "project" data-class="video-popup">
+            <img class = "project-image" data-url ="https://www.youtube.com/embed/kP6TwucAr_M" src = "./multimedia_images/bosnia_independence.jpeg"/>
+            <div class="project-caption">
+              <div class="video-title">Bosnia became independent 30 years ago, but divisions in the region remain</div>
+              <div class="video-publication"><em>PBS NewsHour</em>, March 26, 2022</div>
+            </div>
+          </div>
+        </div> <!--End projects section-->
+      </div> <!--End multimedia section-->
+
+    <footer id="multimedia-footer"><span class ="copyright">© 2023 Ben Weiss</span></footer>
+    </div> <!--End photo body-->
+
+    <script>
+      createMultimediaPage();
+    </script>
+    <button onclick= "next()" class = "slideshow" id="next">&#10095;</button> 
+    <button onclick="previous()" class = "slideshow" id ="previous">&#10094;</button>
+  </body>
+</html>

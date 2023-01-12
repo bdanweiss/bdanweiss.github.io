@@ -123,22 +123,166 @@ function collapse() {
     });
   }
 }
+var total_photos = 0;
 /* This is for my photos page */
-var currentElement = "";
-function createCarousel() {
+function createMultimediaPage() {
   // Go through all the different carousel images and add events to them
   // Add hover events to tooltips near headings
   // Use querySelectorAll because it provides a STATIC list of images, not dynamic
 
-  images = document.querySelectorAll(".carousel-image");
-  for (i = 0; i < images.length; i++) {
-    addLoadingBox(images[i]);
-    addPopupListener(images[i])
+  projects = document.querySelectorAll(".project");
+  for (i = 0; i < projects.length; i++) {
+    // addLoadingBox(images[i]);
+    addPopupListener(projects[i])
   }
-  tooltipCombos = document.querySelectorAll(".tooltip-combo")
-  for (i = 0; i < tooltipCombos.length; i++) {
-    addHoverListener(tooltipCombos[i])
+  // tooltipCombos = document.querySelectorAll(".tooltip-combo")
+  // for (i = 0; i < tooltipCombos.length; i++) {
+  //   addHoverListener(tooltipCombos[i])
+  // }
+}
+function addPopupListener(project) {
+  project.addEventListener("click", function() {
+    createPopup(this);
+
+    // Wait a bit before adding the popupClicked event to prevent
+    // event bubbling.
+    window.setTimeout(function() {
+      document.body.addEventListener("click", popupClicked);
+    }, 100);
+  });
+}
+function createPopup(project) {
+  
+  // Figure out which object is going to be popped up
+  dataType = project.getAttribute("data-class")
+
+  if (dataType == "photo-gallery") {
+    gallery_object = createPhotoSlideshow(project)
   }
+  else {
+    gallery_object = createVideoPopup(project)
+  }
+  var popupDiv = document.createElement("div"); 
+  popupDiv.id = "popup";
+  // var caption = document.createElement("span");
+  // caption.id = "popup-caption";
+  // caption.innerHTML = "asfdksfjskfjaskfjs";
+  // popupDiv.appendChild(caption);
+  popupDiv.appendChild(gallery_object);
+  document.body.appendChild(popupDiv);
+
+  // Setup div cover to make it so the user can't click on buttons in the background
+  var divCover = document.createElement("div")
+  divCover.id = "multimedia-page-cover"
+
+  // Darken the background
+  background = document.getElementById("multimedia-body");
+  background.classList.add("darken");
+
+  // Add elements and center the popup element
+  document.body.appendChild(divCover);
+  center(gallery_object);
+  window.addEventListener("resize", function() {
+    center(gallery_object);
+  });
+}
+function createPhotoSlideshow(project) {
+  // Setup popup image
+  var img = document.createElement("img");
+  total_photos  = parseInt(project.getAttribute("data-count"))
+  photo = project.childNodes[1]
+  img.src = photo.src;
+  img.id = "popup-image";
+
+  nextButton = document.getElementById("next");
+  nextButton.style.visibility = "visible"; 
+
+  // Return image so we can center it
+  return img;
+}
+function createVideoPopup(element) {
+  // Setup popup video
+  var iframe = document.createElement("iframe");
+  var videoWrapper = document.createElement("div");
+  var videoDiv = document.createElement("div");
+  videoWrapper.id = "video-wrapper";
+  videoDiv.id = "video-container";
+  iframe.id = "popup-video";
+  iframe.src = element.childNodes[1].getAttribute("data-url");
+  iframe.setAttribute("allowfullscreen", "allowfullscreen");
+  videoWrapper.appendChild(videoDiv);
+  videoDiv.appendChild(iframe);
+
+  // Return videoWrapper so we can center it
+  return videoWrapper;
+}
+function popupClicked() {
+  // Get target of where the user clicked
+  var target = event.target.id;
+  console.log(target);
+  // If the user didn't click on the popup or buttons, exit popup mode
+  if ((target != "popup-image") && (target != "next") && (target != "previous") && (target != "popup-video")) {
+    image = document.getElementById("popup");
+    divCover = document.getElementById("multimedia-page-cover");
+    document.body.removeChild(image);
+    document.body.removeChild(divCover);
+    buttons = document.getElementsByClassName("slideshow");
+    buttons[0].style.visibility = "hidden"; 
+    buttons[1].style.visibility = "hidden"; 
+    document.body.removeEventListener("click", popupClicked);
+    background = document.getElementById("multimedia-body");
+    background.classList.remove("darken")
+  }
+
+}
+function parseImageName(popup) {
+  // Do some string wizardy to get image construction pattern
+  popupSourceList = popup.src.split("/");
+  currentImgSeparated = popupSourceList[popupSourceList.length - 1].split("_");
+  slideshowTopic = currentImgSeparated[0];
+  currentImgNum = parseInt(currentImgSeparated[1].replace(".jpg", ""));
+  return currentImgNum;
+}
+function slideshowButtonClick() {
+  document.body.addEventListener("click", popupClicked);
+  var nextButton = document.getElementById("next");
+  var previousButton = document.getElementById("previous");
+  var popup = document.getElementById("popup-image");
+  currentImgNum = parseImageName(popup);
+  return [nextButton, previousButton, popup, currentImgNum]
+}
+function next() {
+  elements = slideshowButtonClick();
+  elements[1].style.visibility = "visible";
+  nextImgNum = elements[3] + 1;
+  elements[2].src = "./multimedia_images/" + slideshowTopic + "_" + nextImgNum.toString() + ".jpg";
+  center(elements[2]);
+
+  if (nextImgNum == total_photos) {
+    elements[0].style.visibility = "hidden";
+  }
+}
+function previous() {
+  elements = slideshowButtonClick();
+  elements[0].style.visibility = "visible";
+  nextImgNum = elements[3] - 1;
+  elements[2].src = "./photo_images/" + slideshowTopic + "_" + nextImgNum.toString() + ".jpg";
+  center(elements[2]);
+
+  if (nextImgNum == 1) {
+    elements[1].style.visibility = "hidden";
+  }
+}
+function center(element) {
+  width = element.offsetWidth;
+  height = element.offsetHeight;
+  screenWidth = window.innerWidth;
+  screenHeight = window.innerHeight;
+
+  horizontalOffset = (screenWidth - width)/2;
+  verticalOffset = (screenHeight - height)/2;
+  element.style.left = String(horizontalOffset) + "px"
+  element.style.top = String(verticalOffset) + "px"
 }
 function addHoverListener(tooltipCombo){
   tooltipCombo.addEventListener("mouseover", function() {
@@ -151,38 +295,6 @@ function addHoverListener(tooltipCombo){
         tooltip.style.display = "none";
         tooltip.style.opacity = 0;
       });
-  });
-}
-function addPopupListener(image){
-  image.addEventListener("click", function() {
-    createPopup(this);
-    // Make the buttons visible
-    buttons = document.getElementsByClassName("slideshow");
-    popup = document.getElementById("popup-image");
-    if (image.nextElementSibling != null) {
-      buttons[0].style.visibility = "visible";
-    }
-    if (image.previousElementSibling != null) {
-      buttons[1].style.visibility = "visible"; 
-    }
-    // Wait a bit before adding the popupClicked event to prevent
-    // event bubbling.
-    window.setTimeout(function() {
-      document.body.addEventListener("click", popupClicked);
-    }, 100);
-  });
-}
-function createPopup(element) {
-  currentElement = element;
-  var img = document.createElement("img");
-  img.src = element.src;
-  img.id = "popup-image";
-  background = document.getElementById("photo-body");
-  background.classList.add("darken");
-  document.body.appendChild(img);
-  center(img);
-  window.addEventListener("resize", function() {
-    center(img);
   });
 }
 function addLoadingBox(image) {
@@ -199,83 +311,6 @@ function addLoadingBox(image) {
   else {
     image.style.display = "inline-block";
   }
-}
-function popupClicked() {
-  var target = event.target.id;
-  if ((target != "popup-image") && (target != "next") && (target != "previous")) {
-    image = document.getElementById("popup-image");
-    document.body.removeChild(image);
-    buttons = document.getElementsByClassName("slideshow");
-    buttons[0].style.visibility = "hidden"; 
-    buttons[1].style.visibility = "hidden"; 
-    document.body.removeEventListener("click", popupClicked);
-    background = document.getElementById("photo-body");
-    
-    if (event.target.className != "carousel-image") {
-      background.classList.remove("darken")
-    }
-    else {
-      buttons[0].style.visibility = "visible"; 
-      buttons[1].style.visibility = "visible"; 
-    }
-  }
-}
-function next() {
-  document.body.addEventListener("click", popupClicked);
-  var nextButton = document.getElementById("next");
-  var previousButton = document.getElementById("previous");
-  previousButton.style.visibility = "visible";
-  var next = currentElement.nextElementSibling;
-  if (next == null){
-    nextButton.style.visibility = "hidden";
-  }
-  else {
-    var nextNext = next.nextElementSibling;
-    if (nextNext == null) {
-      nextButton.style.visibility = "hidden";
-    }
-    else {
-      nextButton.style.visibility = "visible";
-    }
-    var popup = document.getElementById("popup-image");
-    popup.src = next.src
-    center(popup);
-    currentElement = next;
-  }
-}
-function previous() {
-  document.body.addEventListener("click", popupClicked);
-  var nextButton = document.getElementById("next");
-  var previousButton = document.getElementById("previous");
-  var previous = currentElement.previousElementSibling;
-  nextButton.style.visibility = "visible";
-  if (previous == null) {
-    previousButton.style.visibility = "hidden";
-  }
-  else {
-    var previousPrevious = previous.previousElementSibling;
-    if (previousPrevious == null) {
-      previousButton.style.visibility = "hidden";
-    }
-    else {
-      previousButton.style.visibility = "visible";
-    }
-    var popup = document.getElementById("popup-image");
-    popup.src = previous.src
-    center(popup);
-    currentElement = previous;
-  }
-}
-function center(element) {
-  width = element.offsetWidth;
-  height = element.offsetHeight;
-  screenWidth = window.innerWidth;
-  screenHeight = window.innerHeight;
-
-  horizontalOffset = (screenWidth - width)/2;
-  verticalOffset = (screenHeight - height)/2;
-  element.style.left = String(horizontalOffset) + "px"
-  element.style.top = String(verticalOffset) + "px"
 }
 /* This is for my writing page */
 function setupWritingPage() {
