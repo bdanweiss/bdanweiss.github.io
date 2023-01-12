@@ -403,6 +403,8 @@ button:focus {
 }
 .multimedia-section-heading {
   margin-bottom: 5px;
+  font-weight: normal;
+  border-bottom: 2px #BEBEBE solid;
 }
 #popup {
   position: fixed;
@@ -472,14 +474,14 @@ button:focus {
 }
 /**********************Writing Page******************************/
 .writing-container {
-  width: 97%;
+  width: 97.5%;
   padding-top: 15px;
   padding-bottom: 40px;
 }
 #container-of-articles {
   display: flex;
   flex-wrap: wrap;
-  width: 96%;
+  width: 100%;
   padding-left: 3%;
 }
 .article-section {
