@@ -404,7 +404,6 @@ button:focus {
 .multimedia-section-heading {
   margin-bottom: 5px;
   font-weight: normal;
-  border-bottom: 2px #BEBEBE solid;
 }
 #popup {
   position: fixed;
