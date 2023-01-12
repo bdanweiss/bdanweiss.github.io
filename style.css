@@ -209,6 +209,7 @@ footer {
   width: 100%;
   opacity: .3;
   text-align: right;
+  padding-bottom: 10px;
 }
 .copyright {
   padding-right: 2%;
@@ -440,7 +441,6 @@ button:focus {
 }
 #multimedia-footer {
   margin-top: 50px;
-  padding-bottom: 10px;
   position: relative;
 }
 .slideshow {
