@@ -262,7 +262,7 @@ function previous() {
   elements = slideshowButtonClick();
   elements[0].style.visibility = "visible";
   nextImgNum = elements[3] - 1;
-  elements[2].src = "./photo_images/" + slideshowTopic + "_" + nextImgNum.toString() + ".jpg";
+  elements[2].src = "./multimedia_images/" + slideshowTopic + "_" + nextImgNum.toString() + ".jpg";
   center(elements[2]);
 
   if (nextImgNum == 1) {
