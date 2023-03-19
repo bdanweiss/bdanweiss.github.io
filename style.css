@@ -366,6 +366,7 @@ button:focus {
   display: inline-block;
   cursor: pointer;
   transition: opacity 0.2s;
+  position: relative;
 }
 .project:hover {
   opacity: .5;
@@ -382,6 +383,14 @@ button:focus {
   width: 90%;
   font-size: 15px;
   margin-left: 1%;
+}
+.project-icon {
+  opacity: .5;
+  position: absolute;
+  top: 35%;
+  left: 42.5%;
+  font-size: 60px;
+  color: white;
 }
 .video-title {
 }
@@ -466,7 +475,7 @@ button:focus {
 }
 .loading-box {
   display: inline-block;
-  min-height: 125px;
+  min-height: 425px;
   min-width: 187.5px;
   margin: 0 5px;
   background-color: white;

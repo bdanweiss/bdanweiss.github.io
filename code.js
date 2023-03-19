@@ -135,10 +135,6 @@ function createMultimediaPage() {
     // addLoadingBox(images[i]);
     addPopupListener(projects[i])
   }
-  // tooltipCombos = document.querySelectorAll(".tooltip-combo")
-  // for (i = 0; i < tooltipCombos.length; i++) {
-  //   addHoverListener(tooltipCombos[i])
-  // }
 }
 function addPopupListener(project) {
   project.addEventListener("click", function() {
