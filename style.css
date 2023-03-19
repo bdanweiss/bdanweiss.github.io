@@ -380,6 +380,7 @@ button:focus {
 }
 .project-caption {
   width: 90%;
+  font-size: 15px;
   margin-left: 1%;
 }
 .video-title {
