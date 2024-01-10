@@ -546,6 +546,9 @@ button:focus {
 .other-selected-article > .article-content {
   font-size: 13px;
 }
+#first-article  > .article-content {
+  width: 97%;
+}
 .article {
   text-decoration: none;
   color: black;
