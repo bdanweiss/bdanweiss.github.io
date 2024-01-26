@@ -111,6 +111,10 @@ a.active {
   width: 10px;
   display: none;
 }
+#hamburger-icon:hover, #close-icon:hover {
+  transition: opacity .2s ease-out;
+  opacity: .4;
+}
 #smartphone-closed-resize {
   width: 0;
   position: absolute;
@@ -133,6 +137,7 @@ a.active {
 }
 #hamburger-icon {
   color: black;
+  opacity: 1;
   display: none;
   cursor: pointer;
   position: relative;
@@ -178,6 +183,7 @@ a.active {
 }
 #close-icon {
   color: black;
+  opacity: 1;
   display: none;
   cursor: pointer;
   position: relative;
