@@ -1,58 +1,82 @@
 /* This is for if someone resizes the window */
-function hideNavigation() {
+function showOrCloseNav() {
+
   var screenWidth = window.window.innerWidth;
-  if (screenWidth > 700) {
-    closeNavigation();
+  if (screenWidth <= 780) {
+    // I'm using this function to stop any funky transitions in width size of nav
+    showClosedSmartPhoneResize(); 
+  }
+  else if (screenWidth > 780) {
+    showWidepageNav()
   }
 }
-/* This for changing the navigation in small windows */
-function showNavigation() {
-
-  // Find all of the HTML elements in my smartphone menu.
-  var phoneNav = document.getElementById("smartphone");
-  var width = phoneNav.style.width;
-  var links = phoneNav.getElementsByClassName("nav");
-  var title = phoneNav.getElementsByClassName("title")[0];
-  var close = phoneNav.getElementsByClassName("close-icon")[0];
-  var contactInfo = document.getElementById("contact-smartphone");
-  var contactInfoImages = document.getElementById("contact-smartphone");
-
-  // If the menu is hidden.
-  if ((width == "") || (width == "0px")) {
-    phoneNav.style.width = "300px";
-
-    // Display everything inside the menu after 199 milliseconds
-    window.setTimeout(function() {
-      for (i = 0; i < links.length; i++) {
-        links[i].style.display = "inline-block";
-      }
-      title.style.display = "block";
-      close.style.display = "inline-block";
-      contactInfo.style.display = "flex";
-      phoneNav.style.boxShadow = "0px 5px 5px 0px #494848";
-    }, 180);
+/* This is for turning the opacity and interactivity of the menu links on and off */
+function toggleMenuElements(onOrOff) {
+  var contactInfo = document.getElementById("contact-info");
+  var linksContainer = document.getElementById("links-container");
+  if (onOrOff == "on") {
+    opacity = "1"
+    pointerEvents = "auto"
   }
-  // If the menu is displayed.
-  else {
-    closeNavigation();
+  else if (onOrOff == "off") {
+    opacity = "0"
+    pointerEvents = "none"
   }
+  contactInfo.style.opacity = opacity;
+  contactInfo.style.pointerEvents = pointerEvents;
+  linksContainer.style.opacity = opacity;
+  linksContainer.style.pointerEvents = pointerEvents;
 }
-function closeNavigation() {
-  var phoneNav = document.getElementById("smartphone");
-  var height = phoneNav.style.height
-  var links = phoneNav.getElementsByClassName("nav");
-  var title = phoneNav.getElementsByClassName("title")[0];
-  var close = phoneNav.getElementsByClassName("close-icon")[0];
-  var contactInfo = document.getElementById("contact-smartphone");
 
-  phoneNav.style.width = "0px";
-  title.style.display = "none";
-  close.style.display = "none";
-  contactInfo.style.display = "none";
-  for (i = 0; i < links.length; i++) {
-    links[i].style.display = "none";
-  }
-    phoneNav.style.boxShadow = "3px 3px 5px 0px #494848;";
+/* Close the menu if user clicks on X --> this lets us do a nice transition */
+function showClosedSmartPhone() {
+  var nav = document.getElementsByTagName("nav")[0];
+  toggleMenuElements("off")
+  window.setTimeout(function() {
+    document.getElementById("hamburger-icon").style.display = "inline-block"
+    document.getElementById("close-icon").style.display = "none"
+    nav.id = "smartphone-closed";
+  }, 200);
+}
+/* Close the menu if user resizes the window --> avoid transitions */
+function showClosedSmartPhoneResize() {
+  var nav = document.getElementsByTagName("nav")[0];
+  toggleMenuElements("off")
+  document.getElementById("hamburger-icon").style.display = "inline-block"
+  document.getElementById("close-icon").style.display = "none"
+  nav.id = "smartphone-closed-resize";
+  nav.width = "0px"
+}
+
+/* This for opening the menu whenever the user clicks on the hamburger menu */
+function showSmarthphoneNav() {
+  
+  var nav = document.getElementsByTagName("nav")[0];
+  nav.id = "smartphone";
+  document.getElementById("close-icon").style.display = "inline-block"
+  document.getElementById("hamburger-icon").style.display = "none"
+  nav.style.boxShadow = "0px 5px 5px 0px #494848";
+
+  // Basically, wait 200 ms after transi
+  window.setTimeout(function() {
+    var contactInfo = document.getElementById("contact-info");
+    var linksContainer = document.getElementById("links-container");
+    nav.insertBefore(linksContainer, contactInfo);
+    var email = document.getElementById("email");
+    email.childNodes[0].classList.add("icon");
+    email.childNodes[0].classList.add("md-36");
+    toggleMenuElements("on")
+  }, 200);
+}
+function showWidepageNav() {
+  var nav = document.getElementsByTagName("nav")[0];
+  document.getElementById("hamburger-icon").style.display = "none"
+  nav.style.boxShadow = "0 0 0 0";
+  var email = document.getElementById("email");
+  email.childNodes[0].classList.remove("icon");
+  email.childNodes[0].classList.remove("md-36");
+  toggleMenuElements("on")
+  nav.id = "widepage";
 }
 /* This for loading the background pic on my home page. */
 function loadBackground() {
@@ -95,12 +119,7 @@ function showLoader() {
 function writeEmail() {
   user = "bdanweiss";
   domain = "gmail.com";
-  document.write('<a class = "email" href=\"mailto:' + user + '@' + domain + '\""><i class="material-icons">email</i></a>');
-}
-function writeEmailPhone() {
-  user = "bdanweiss";
-  domain = "gmail.com";
-  document.write('<a class = "phone-email" href=\"mailto:' + user + '@' + domain + '\""><i class="material-icons md-36">email</i></a>');
+  document.write('<a id = "email" href=\"mailto:' + user + '@' + domain + '\""><i class="material-icons">email</i></a>');
 }
 /* This is for collapsing my boxes in my resume*/
 function collapse() {

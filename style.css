@@ -16,8 +16,8 @@ body {
   background: #BCBCBC; /* Gecko Browsers */
 }
 
-/********************** Navigation **********************************/
-nav {
+/********************** Wide Page Navigation **********************************/
+#widepage {
   width: 100%;
   display: inline-block;
 }
@@ -27,146 +27,217 @@ nav a {
   color: black;
   transition: opacity .2s ease-out;
 }
-.title {
-  display: inline-block;
-  float: left;
-  font-weight: 600;
-  padding-left: 3%;
-  font-size: 40px;
-  margin-top: 0.5%;
-}
-.nav {
-  line-height: 60px;
-  font-size: 25px;
-  height: 100%;
-  float: right;
-  padding: 0.5% 3% 0 2%;
-}
-nav a:hover {
+a:hover {
   opacity: .4;
 }
-nav a.active {
+a.active {
   opacity: .4;
   color: black;
 }
-.contact-info {
-  padding-left: 15px;
+#title-div {
+  display: inline-block;
+  vertical-align: top;
 }
-.phone-icon, .icon {
+#widepage #links-container {
+  transition: opacity .2s ease-out;
+  opacity: 0;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+  text-align: right;
+  width: 60%;
+  float: right;
+}
+#widepage a {
+  color: black;
+}
+#title {
+  font-weight: 600;
+  font-size: 40px;
+}
+#widepage #title {
+  display: inline-block;
+  float: left;
+  padding-left: 30px;
+  margin-top: 8px;
+}
+#widepage .nav-link {
+  line-height: 60px;
+  font-size: 25px;
+  height: 100%;
+  padding: 10px 4% 0 4%;
+}
+#contact-info {
+  padding-left: 12.5px;
+  vertical-align: top;
+  display: inline-block;
+}
+#contact-label {
+  display: none;
+}
+.icon {
   opacity: .5;
+  display: inline-block;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+#widepage .icon {
   height: 24px;
   width: 24px;
   margin-top: 17px;
   margin-left: 3px;
   padding-top: 10px;
-  display: inline-block;
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
 }
-nav a.email {
+#widepage #email {
   opacity: .5;
   margin-left: 1.5px;
 }
-nav a.email:hover, nav img.icon:hover, nav i.icon:hover {
+#widepage #email:hover, nav img.icon:hover, nav i.icon:hover {
   opacity: .4;
   filter: grayscale(0%);
 }
-.twitter {
+#widepage #twitter {
   height: 19px;
   width: 19px;
   padding-bottom: 3.3px;
 }
-.linkedin {
+#widepage #linkedin {
   margin-right: 4px;
 }
 
-/********************** Smart Phone *************************/
+/********************** Smartphone Closed Navigation **********************************/
+#buffer-box {
+  height: 50px;
+  display: none;
+}
+#smartphone-closed-resize {
+  width: 0;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+}
+#smartphone-closed {
+  width: 0;
+  height: 300px;
+  transition: width .2s ease-out;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+}
+#smartphone-closed #title, #smartphone-closed-resize #title{
+  display: inline-block;
+  color: black;
+}
+#hamburger-icon {
+  color: black;
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin: 0 10px 0 10px;
+  bottom: -5px;
+}
+#smartphone-closed #title-div, #smartphone-closed-resize #title-div {
+  width: 300px;
+  padding-left: 9px;
+}
+#smartphone-closed-resize #links-container {
+  opacity: 0;
+  pointer-events: none;
+}
+#smartphone-closed-resize #contact-info {
+  opacity: 0;
+  pointer-events: none;
+}
+#smartphone-closed #links-container {
+  transition: opacity .2s ease-out;
+  opacity: 0;
+  pointer-events: none;
+}
+#smartphone-closed #contact-info {
+  transition: opacity .2s ease-out;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/********************** Smartphone Open Navigation **********************************/
 #smartphone {
   transition: width .2s ease-out;
-  display: flex;
-  flex-wrap: wrap;
-  width: 0px;
+  width: 300px;
   height: 300px;
   position: fixed;
   top: 0;
   z-index: 1;
   background-color: white;
 }
-#smartphone a.nav, #smartphone a.title {
-  color: black; 
-  display: none;
-}
-#smartphone i.close-icon {
-  display: none;
-}
-.links-container {
-  width: 150px;
-  height: 70%;
-  padding: 0;
-}
-#contact-smartphone {
-  display: none;
-  color: black;
-  position: absolute;
-  left: 5px;
-  font-size: 20px;
-  top: 230px;
+#smartphone #title-div {
   width: 300px;
-  flex-wrap: wrap;
-  z-index: 1;
+  padding-left: 9px;
 }
-nav a.phone-email {
+#close-icon {
   color: black;
-  opacity: .5;
-  padding-top: 2px;
-  padding-right: 4px;
-}
-nav a.phone-email:hover {
-  opacity: .2;
-}
-.phone-icon {
-  margin: 0;
-  padding: 0;
-}
-.twitter-phone {
-  width: 27px;
-  height: 27px;
-  margin-top: 6px;
-}
-.linkedin-phone {
-  width: 34px;
-  height: 34px;
-  margin-left: -2px;
-  margin-top: 3px;
-}
-#contact-label {
-  margin-top: 5px;
-  margin-right: 5px;
-  opacity: .3;
-}
-.linkedin-phone:hover, .twitter-phone:hover {
-  -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(0%);
+  display: none;
+  cursor: pointer;
+  position: relative;
+  margin: 0 10px 0 10px;
+  bottom: -5px;
 }
 .material-icons.md-36 { 
   font-size: 36px; 
 }
-.close-icon {
-  padding-top: 14px;   
-  padding-left: 15px;
+#smartphone #title {
+  display: inline-block;
+}
+#smartphone #links-container {
+  transition: opacity .2s ease-out;
+  opacity: 1;
+  pointer-events: auto;
+  display: block;
+  width: 100%;
+}
+#smartphone .nav-link {
+  line-height: 60px;
+  font-size: 25px;
+  width: 97%;
+  padding-left: 2%;
+}
+#smartphone .nav-link:before {
+  content: "> ";
+}
+#smartphone #contact-info {
+  transition: opacity .2s ease-out;
+  opacity: 1;
+  pointer-events: auto;
+  width: 95%;
+  display: block;
+  padding: 2% 0 0 2%;
+  display: flex;
+}
+#smartphone #contact-label {
+  opacity: .3;
+  display: inline-block;
   color: black;
-  height: 50px;
+  font-size: 20px;
+  margin: 0 0 20px 0;
 }
-.hamburger-icon {
-  padding-top: 13px;   
-  padding-left: 15px;
-  display: none !important;
+#smartphone .icon {
+  height: 100%;
 }
-.hamburger-icon:hover, .close-icon:hover {
-  opacity: .7;
-  cursor: pointer;
+#smartphone #twitter {
+  width: 28px;
+  height: 28px;
+  margin: 3px;
 }
-
+#smartphone #linkedin {
+  width: 34px;
+  height: 34px;
+}
+#smartphone #email {
+  color: black;
+  opacity: .9;
+  margin-top: -1px;
+}
 /**********************Home Page Layout******************************/
 #background-slideshow {
   font-family: 'Didact Gothic', sans-serif;
@@ -228,8 +299,8 @@ footer {
   display: block;
   flex-wrap: wrap;
   width: 68%;
-  margin-left: 2.35%;
-  margin-top: 1.8%;
+  margin-left: 20px;
+  margin-top: 30px;
   border-right: 2px solid #BEBEBE;
 }
 .language-container {
@@ -269,8 +340,8 @@ footer {
   border: none;
   font-size: 23px;
   text-align: left;
-  margin-top: 1%;
-  padding: 1%;
+  margin-top: 10px;
+  padding: 10px;
 }
 button:focus {
   outline: 0;
@@ -356,7 +427,7 @@ button:focus {
   left: 5%;
 }
 .multimedia-section {
-  margin-left: 2.5%;
+  margin-left: 25px;
   width: 95%;
 }
 .projects {
@@ -492,7 +563,7 @@ button:focus {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
-  padding-left: 3%;
+  padding-left: 30px;
 }
 .article-section {
   display: flex;
@@ -598,6 +669,9 @@ button:focus {
   .projects {
     display: block;
   }
+  .multimedia-section {
+    margin-left: 15px;
+  }
   #multimedia-page-cover {
   min-height: 100%;  /* look here */
   }
@@ -629,10 +703,16 @@ button:focus {
     box-shadow: 3px 3px 5px 3px #494848;
   }
   /********* Writing Page ***********/
+  #container-of-articles {
+    padding-left: 20px;
+  }
   .article-section {
     display: inline-block;
   }
   .first-article-image {
+    width: 93%;
+  }
+  .section-heading {
     width: 93%;
   }
   #other-articles {
@@ -649,39 +729,13 @@ button:focus {
     width: 95%;
     margin: 20px 0 0 20px;
   }
-
-  /******* Navigation ***********/
-  nav {
-    text-align: left;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0;
-  }
-  .hamburger-icon {
-    display: inline-block !important;
-  }
-  .contact-info {
-    display: none;
-  }
-  nav a.nav:before {
-    content: "> "
-  }
-  nav a.nav {
-    width: 100%;
-    line-height: 0px;
-    height: 50px;
-    float: none;
-    display: none;
-  }
-  nav a.title {
-    text-align: left;
-    height: 60px;
+}
+/******* Nav ********/
+@media only screen and (max-width: 780px) {
+  #buffer-box {
     display: block;
-    float: none;
-    padding-left: 10px;
   }
 }
-
 /******** Resume *********/
 @media only screen and (max-width: 850px) {
   .top {

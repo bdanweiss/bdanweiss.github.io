@@ -21,7 +21,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
   </head>
 
-  <body onload ="loadBackground()" onresize = "hideNavigation()">
+  <style>
+  #widepage a, #hamburger-icon, #smartphone-closed #title,  #smartphone-closed-resize #title {
+    color: white;
+  }
+  </style>
+  <body onload ="loadBackground();showOrCloseNav()" onresize="showOrCloseNav()">
 
     <!--Control search description-->
     <div style="display: none">I'm a journalist based in New York City. Among other topics, I cover technology, labor, and their intersections with migration.</div>
@@ -31,48 +36,26 @@
     <div id ="loader"></div>
     <div id = "background-slideshow">
       
-      <!--Navigation Bar for Laptop/Desktop-->
-
-      <nav id = "regular" onresize="hideNavigation()">
-        <style>
-          nav a {
-            color: white;
-          }
-          body {
-            min-width: 330px;
-          }
-        </style>
-        <i class="material-icons md-36 hamburger-icon " onclick = "showNavigation()">menu</i>
-        <a class = "title" href="./">Ben Weiss</a>
-        <span class = "contact-info">
-          <a href="https://www.linkedin.com/in/benjamindweiss/" target="_blank"><img class = "linkedin icon" src = "./images/linkedin.png"/><a>
+      <!--Navigation Bar-->
+      <nav id = "widepage">
+        <div id = "title-div">
+          <span id ="hamburger-icon" class="material-icons md-36" onclick = "showSmarthphoneNav()">menu</span>
+          <span id ="close-icon" class="material-icons md-36" onclick="showClosedSmartPhone()">close</span>
+          <a id = "title" href="./">Ben Weiss</a>
+        </div id = "title-div">
+        <div id = "contact-info">
+          <span id="contact-label">Contact:</span>
+          <a href="https://www.linkedin.com/in/benjamindweiss/" target="_blank"><img id = "linkedin" class = "icon" src = "./images/linkedin.png"/><a>
           <script>
             writeEmail();
           </script>
-          <a href="https://twitter.com/bdanweiss/" target="_blank"><img class = "twitter icon" src = "./images/twitter.png"/></a>
-        </span>
-        <a class = "nav" href="./resume/">Resume</a>
-        <a class = "nav" href="./multimedia/">Multimedia</a>
-        <a class = "nav" href="./writing">Writing</a>
-      </nav>
-
-      <!--Navigation Bar for Smartphone-->
-
-      <nav id = "smartphone">
-        <i class="material-icons md-36 close-icon" onclick = "showNavigation()">close</i>
-        <a class = "title" href="./">Ben Weiss</a>
-        <div class = "links-container">
-          <a class = "nav" href="./writing">Writing</a>
-          <a class = "nav" href="./multimedia/">Multimedia</a>
-          <a class = "nav" href="./resume/">Resume</a>
+          <a href="https://twitter.com/bdanweiss/" target="_blank"><img id = "twitter" class = "icon" src = "./images/twitter.png"/></a>
         </div>
-        <span id = "contact-smartphone">
-          <span id="contact-label">Contact:</span>
-          <img class = "phone-icon linkedin-phone" src = "./images/linkedin.png"/>
-          <script>writeEmailPhone();</script>
-          <img class = "phone-icon twitter-phone" src = "./images/twitter.png"/>
-        </span>
-        <div id="filler"></div>
+        <div id = "links-container">
+          <a class = "nav-link" href="./writing">Writing</a>
+          <a class = "nav-link" href="./multimedia/">Multimedia</a>
+          <a class = "nav-link" href="./resume/">Resume</a>
+        </div>
       </nav>
 
       <footer>
