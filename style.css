@@ -333,6 +333,7 @@ footer {
 .button-category {
   transition: width 0.2s;
   font-family: 'EB Garamond', serif;
+  color: black;
   width: 200px;
   display: block;
   cursor: pointer;
