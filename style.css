@@ -108,6 +108,7 @@ a.active {
 /********************** Smartphone Closed Navigation **********************************/
 #buffer-box {
   height: 50px;
+  width: 10px;
   display: none;
 }
 #smartphone-closed-resize {
@@ -224,16 +225,16 @@ a.active {
 #smartphone .icon {
   height: 100%;
 }
-#smartphone #twitter {
+#smartphone #twitter, #smartphone-closed-resize #twitter, #smartphone-closed #twitter {
   width: 28px;
   height: 28px;
   margin: 3px;
 }
-#smartphone #linkedin {
+#smartphone #linkedin, #smartphone-closed-resize #linkedin, #smartphone-closed #linkedin {
   width: 34px;
   height: 34px;
 }
-#smartphone #email {
+#smartphone #email, #smartphone-closed-resize #email, #smartphone-closed #email {
   color: black;
   opacity: .9;
   margin-top: -1px;
