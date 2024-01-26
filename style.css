@@ -1,5 +1,5 @@
 body {
-  font-family: 'Didact Gothic', sans-serif;
+  font-family: 'EB Garamond', serif;
   display: inline-block;
   min-height: 100vh;
   width: 100%;
@@ -53,7 +53,7 @@ a.active {
 }
 #title {
   font-weight: 600;
-  font-size: 40px;
+  font-size: 42px;
 }
 #widepage #title {
   display: inline-block;
@@ -63,7 +63,7 @@ a.active {
 }
 #widepage .nav-link {
   line-height: 60px;
-  font-size: 25px;
+  font-size: 27px;
   height: 100%;
   padding: 10px 4% 0 4%;
 }
@@ -219,7 +219,7 @@ a.active {
   opacity: .3;
   display: inline-block;
   color: black;
-  font-size: 20px;
+  font-size: 22px;
   margin: 0 0 20px 0;
 }
 #smartphone .icon {
@@ -241,7 +241,6 @@ a.active {
 }
 /**********************Home Page Layout******************************/
 #background-slideshow {
-  font-family: 'Didact Gothic', sans-serif;
   display: inline-block;
   margin:0;
   padding:0;
@@ -327,19 +326,19 @@ footer {
 }
 .rating {
   margin-left: 5px; 
-  font-size: 13px;
+  font-size: 15px;
   font-style: italic;
 }
 /* Style the category button */
 .button-category {
   transition: width 0.2s;
+  font-family: 'EB Garamond', serif;
   width: 200px;
-  font-family: 'Didact Gothic', sans-serif;
   display: block;
   cursor: pointer;
   background-color: white;
   border: none;
-  font-size: 23px;
+  font-size: 25px;
   text-align: left;
   margin-top: 10px;
   padding: 10px;
@@ -368,7 +367,7 @@ button:focus {
   overflow: hidden;
   transition: max-height 0.2s ease-out;
   width: 100%;
-  font-size: 15px;
+  font-size: 16px;
 }
 .resume-entry {
   width: 97%;
@@ -394,7 +393,7 @@ button:focus {
   float: right;
   text-align: right;
   vertical-align: top;
-  font-size: 15px;
+  font-size: 17px;
   margin-right: 3%;
 }
 .circle {
@@ -632,10 +631,10 @@ button:focus {
 .article-content {
   width: 100%;
   margin: 5px 0 0 0;
-  font-size: 18px;
+  font-size: 20px;
 }
 .other-featured-articles > .article-content {
-  font-size: 14px;
+  font-size: 16px;
 }
 .article-title {
   width: 100%;
